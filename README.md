@@ -4,10 +4,21 @@ demo application by Vaadin Framework.
 
 ## Description
 
-### design core concept
+### core design concept
 
-* Layered architecture by Domain Driven Design
-* MVP architecture
+Domain Driven Design.
+
+* This application has multi projects.
+  * demo-application project
+    * domain layer: isolating any layers
+    * application layer: depending on domain layer
+    * infrastructure layer: depending on domain layer
+  * demo-ui project
+    * presentation layer: depending on domain & application layer
+      * oriented MVP architecture
+        * Model: not depending on Vaadin, depending on domain layer
+        * Presenter: not depending on Vaadin, depending on domain & application layer
+        * View: depending on Vaadin and domain layer
 
 ### framework & tool
 
