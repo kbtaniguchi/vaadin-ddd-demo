@@ -34,4 +34,8 @@ Domain Driven Design.
 
 ## Usage
 
-under construction
+### start application
+
+`./gradlew :demo-ui:bootRun`
+
+access http://localhost:8080/
