@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath("com.devsoap.plugin:gradle-vaadin-plugin:1.2.4")
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'com.devsoap.plugin.vaadin'
+
+repositories {
+    maven { url "http://maven.vaadin.com/vaadin-addons" }
+}
+
+dependencies {
+    compile project(':demo-application')
+
+    compile("com.vaadin:vaadin-spring-boot-starter:2.0.0")
+//    compile("com.google.guava:guava:23.0") eventbus必要かな？
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}

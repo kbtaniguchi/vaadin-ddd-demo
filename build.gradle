@@ -1,0 +1,47 @@
+buildscript {
+    ext {
+        encoding = 'UTF-8'
+        compatibility = 1.8
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0'
+}
+
+subprojects {
+    buildscript {
+        ext {
+            encoding = 'UTF-8'
+            compatibility = 1.8
+            springBootVersion = '1.5.7.RELEASE'
+        }
+        repositories {
+            mavenCentral()
+            jcenter()
+        }
+        dependencies {
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        }
+    }
+
+    apply plugin: 'idea'
+    apply plugin: 'java'
+
+    sourceCompatibility = compatibility
+    targetCompatibility = compatibility
+
+    task initSrcDirs {
+        doLast {
+            sourceSets.all {
+                java.srcDirs*.mkdirs()
+                resources.srcDirs*.mkdirs()
+            }
+        }
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}

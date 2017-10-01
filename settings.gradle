@@ -1,0 +1,3 @@
+rootProject.name = 'vaadin-ddd-demo'
+include 'demo-application'
+include 'demo-ui'
