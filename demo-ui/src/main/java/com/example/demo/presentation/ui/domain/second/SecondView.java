@@ -22,4 +22,8 @@ public class SecondView extends BaseViewLayout implements View {
         // This view is constructed in the init() method()
     }
 
+    @Override
+    protected String headerText() {
+        return "Second View";
+    }
 }

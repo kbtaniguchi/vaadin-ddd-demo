@@ -3,9 +3,10 @@ package com.example.demo.presentation.ui.component.header;
 import com.vaadin.ui.VerticalLayout;
 
 public class Header extends VerticalLayout {
-    final ApplicationTitleLabel applicationTitle = new ApplicationTitleLabel();
+    final HeaderTitle applicationTitle;
 
-    public Header() {
+    public Header(String headerText) {
+        this.applicationTitle = new HeaderTitle(headerText);
         addComponent(applicationTitle);
         setMargin(false);
     }

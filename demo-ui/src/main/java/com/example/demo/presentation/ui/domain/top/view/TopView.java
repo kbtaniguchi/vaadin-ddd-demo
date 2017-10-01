@@ -40,4 +40,9 @@ public class TopView extends BaseViewLayout implements View, ITopView {
     public void toSecondView() {
         getUI().getNavigator().navigateTo(SecondView.VIEW_NAME);
     }
+
+    @Override
+    protected String headerText() {
+        return "Top View";
+    }
 }

@@ -4,7 +4,7 @@ import com.vaadin.ui.Alignment;
 import com.vaadin.ui.VerticalLayout;
 
 public class Footer extends VerticalLayout {
-    final CopyRightLabel copyRight = new CopyRightLabel();
+    final CopyRight copyRight = new CopyRight();
 
     public Footer() {
         addComponent(copyRight);
