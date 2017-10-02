@@ -1,4 +1,4 @@
 /**
- * ui component + logic depending on Vaadin
+ * ui components
  */
 package com.example.demo.presentation.ui;
