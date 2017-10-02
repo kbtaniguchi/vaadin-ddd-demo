@@ -12,9 +12,4 @@ public class TopPresenter implements ITopPresenter {
     public void setView(ITopView view) {
         this.view = view;
     }
-
-    @Override
-    public void clickToSecondViewButton() {
-        view.toSecondView();
-    }
 }

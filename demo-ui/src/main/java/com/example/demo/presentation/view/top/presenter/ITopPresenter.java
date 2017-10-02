@@ -6,5 +6,4 @@ public interface ITopPresenter {
     void setView(ITopView view);
 
     // event list
-    void clickToSecondViewButton();
 }

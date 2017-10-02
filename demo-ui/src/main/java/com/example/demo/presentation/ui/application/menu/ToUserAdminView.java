@@ -1,15 +1,15 @@
 package com.example.demo.presentation.ui.application.menu;
 
-import com.example.demo.presentation.view.top.view.TopView;
+import com.example.demo.presentation.view.useradmin.view.UserAdminView;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.themes.ValoTheme;
 
-class ToTopView extends Button {
+class ToUserAdminView extends Button {
 
-    ToTopView() {
-        setCaption(TopView.CAPTION);
+    ToUserAdminView() {
+        setCaption(UserAdminView.CAPTION);
         setPrimaryStyleName(ValoTheme.MENU_ITEM);
-        addClickListener(event -> getUI().getNavigator().navigateTo(TopView.VIEW_NAME));
+        addClickListener(event -> getUI().getNavigator().navigateTo(UserAdminView.VIEW_NAME));
     }
 
     void selected() {
