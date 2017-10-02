@@ -6,12 +6,13 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.themes.ValoTheme;
 
 public class SearchPanel extends Panel {
-    final UserNameSearchField userNameSearchField = new UserNameSearchField();
-    final EmailAddressSearchField emailAddressText = new EmailAddressSearchField();
+    final UserIdSearchField userId = new UserIdSearchField();
+    final UserNameSearchField userName = new UserNameSearchField();
+    final EmailAddressSearchField emailAddress = new EmailAddressSearchField();
     final SearchButton searchButton = new SearchButton();
 
     public SearchPanel() {
-        HorizontalLayout layout = new HorizontalLayout(userNameSearchField, emailAddressText, searchButton);
+        HorizontalLayout layout = new HorizontalLayout(userId, userName, emailAddress, searchButton);
         layout.setComponentAlignment(searchButton, Alignment.BOTTOM_RIGHT);
         setContent(layout);
         addStyleName(ValoTheme.PANEL_BORDERLESS);
