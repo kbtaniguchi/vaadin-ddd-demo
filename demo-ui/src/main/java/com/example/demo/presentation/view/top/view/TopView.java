@@ -31,6 +31,7 @@ public class TopView extends BaseViewLayout implements View, ITopView {
     }
 
     private void bindListener() {
+        // delegate event handling to presenter
         body.toSecondViewButton.addClickListener(
                 event -> presenter.clickToSecondViewButton());
     }

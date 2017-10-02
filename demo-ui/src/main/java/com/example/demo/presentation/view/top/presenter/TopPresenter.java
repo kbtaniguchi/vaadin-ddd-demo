@@ -6,7 +6,7 @@ import com.vaadin.spring.annotation.ViewScope;
 @SpringComponent
 @ViewScope
 public class TopPresenter implements ITopPresenter {
-    ITopView view;
+    ITopView view; // cannot view instance injection
 
     @Override
     public void setView(ITopView view) {
