@@ -9,7 +9,7 @@ public class TopPresenter implements ITopPresenter {
     ITopView view; // cannot view instance injection
 
     @Override
-    public void setView(ITopView view) {
+    public void attachView(ITopView view) {
         this.view = view;
     }
 }

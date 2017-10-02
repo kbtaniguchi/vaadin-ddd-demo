@@ -13,6 +13,7 @@ public class UserSummaryListGrid extends Grid<UserSummary> {
     public UserSummaryListGrid() {
         setSizeFull();
         setSelectionMode(SelectionMode.MULTI);
+
         addColumn(userSummary -> userSummary.userName().asText()).setCaption("name");
         addColumn(userSummary -> userSummary.emailAddress().asText()).setCaption("email");
 

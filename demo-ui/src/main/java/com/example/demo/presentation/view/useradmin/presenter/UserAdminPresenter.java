@@ -14,7 +14,12 @@ public class UserAdminPresenter implements IUserAdminPresenter {
     UserSummaryService userSummaryService;
 
     @Override
-    public void setView(IUserAdminView view) {
+    public void attachView(IUserAdminView view) {
         this.view = view;
+    }
+
+    @Override
+    public void clickRegisterButton() {
+        view.launchUserRegisterDialog();
     }
 }

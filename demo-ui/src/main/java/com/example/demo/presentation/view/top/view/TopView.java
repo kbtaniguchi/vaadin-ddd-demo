@@ -24,7 +24,7 @@ public class TopView extends BaseViewLayout implements View, ITopView {
 
     @PostConstruct
     void init() {
-        presenter.setView(this);
+        presenter.attachView(this);
         addHeaderAndBody(header, body);
         bindListener();
         setCaption(CAPTION);
