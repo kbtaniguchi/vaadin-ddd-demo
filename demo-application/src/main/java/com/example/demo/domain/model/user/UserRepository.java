@@ -4,5 +4,5 @@ public interface UserRepository {
 
     void register(User user);
 
-    void delete(User user);
+    void delete(UserId userId);
 }

@@ -1,6 +1,7 @@
 package com.example.demo.presentation.view.useradmin.view.dialog.register.button;
 
 import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.HorizontalLayout;
 
 public class ButtonBar extends HorizontalLayout {
@@ -13,5 +14,13 @@ public class ButtonBar extends HorizontalLayout {
         addComponent(buttons);
         setComponentAlignment(buttons, Alignment.MIDDLE_CENTER);
         setSizeFull();
+    }
+
+    public void addClickEvenListenerToSaveButton(ClickListener clickListener) {
+        saveButton.addClickListener(clickListener);
+    }
+
+    public void addClickEventListenerToCancelButton(ClickListener clickListener) {
+        cancelButton.addClickListener(clickListener);
     }
 }

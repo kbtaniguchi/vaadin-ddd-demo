@@ -2,5 +2,6 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compileOnly('org.projectlombok:lombok:1.16.18')
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }

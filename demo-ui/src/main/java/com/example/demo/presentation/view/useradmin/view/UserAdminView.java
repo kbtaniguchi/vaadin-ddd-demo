@@ -6,7 +6,6 @@ import com.example.demo.presentation.view.useradmin.presenter.IUserAdminPresente
 import com.example.demo.presentation.view.useradmin.presenter.IUserAdminView;
 import com.example.demo.presentation.view.useradmin.view.dialog.register.UserRegisterDialog;
 import com.vaadin.navigator.View;
-import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.spring.annotation.SpringView;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -35,11 +34,6 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
 
     private void bindEventListener() {
         body.controlBar.addClickEventListenerToRegisterButton(event -> presenter.clickRegisterButton());
-    }
-
-    @Override
-    public void enter(ViewChangeEvent event) {
-        // This view is constructed in the init() method()
     }
 
     @Override
