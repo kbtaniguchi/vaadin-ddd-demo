@@ -1,4 +1,4 @@
-package com.example.demo.presentation.view.useradmin.presenter.dialog;
+package com.example.demo.presentation.view.useradmin.presenter.dialog.register;
 
 import com.example.demo.domain.model.user.User;
 

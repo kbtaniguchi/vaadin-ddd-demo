@@ -1,7 +1,7 @@
 package com.example.demo.presentation.view.useradmin.view.dialog.register;
 
-import com.example.demo.presentation.view.useradmin.presenter.dialog.IUserRegisterDialog;
-import com.example.demo.presentation.view.useradmin.presenter.dialog.IUserRegisterPresenter;
+import com.example.demo.presentation.view.useradmin.presenter.dialog.register.IUserRegisterDialog;
+import com.example.demo.presentation.view.useradmin.presenter.dialog.register.IUserRegisterPresenter;
 import com.example.demo.presentation.view.useradmin.view.UserAdminView;
 import com.example.demo.presentation.view.useradmin.view.dialog.register.button.ButtonBar;
 import com.example.demo.presentation.view.useradmin.view.dialog.register.form.InputForm;
