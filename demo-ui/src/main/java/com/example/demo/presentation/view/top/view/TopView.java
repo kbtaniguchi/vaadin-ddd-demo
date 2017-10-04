@@ -1,7 +1,7 @@
 package com.example.demo.presentation.view.top.view;
 
-import com.example.demo.presentation.view.base.fragment.header.Header;
-import com.example.demo.presentation.view.base.layout.BaseViewLayout;
+import com.example.demo.presentation.view.fundamentals.fragment.header.Header;
+import com.example.demo.presentation.view.fundamentals.layout.BaseViewLayout;
 import com.vaadin.navigator.View;
 import com.vaadin.spring.annotation.SpringView;
 

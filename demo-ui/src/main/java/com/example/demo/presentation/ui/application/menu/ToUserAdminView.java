@@ -1,6 +1,6 @@
 package com.example.demo.presentation.ui.application.menu;
 
-import com.example.demo.presentation.view.useradmin.view.UserAdminView;
+import com.example.demo.presentation.view.useradmin.root.view.UserAdminView;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.themes.ValoTheme;
 
