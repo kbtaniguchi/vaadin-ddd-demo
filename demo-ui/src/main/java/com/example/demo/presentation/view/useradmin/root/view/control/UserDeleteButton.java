@@ -1,13 +1,12 @@
 package com.example.demo.presentation.view.useradmin.root.view.control;
 
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.themes.ValoTheme;
 
 class UserDeleteButton extends Button {
-    final String caption = "Delete";
-
     UserDeleteButton() {
-        setCaption(caption);
+        setIcon(VaadinIcons.TRASH, "Delete");
         addStyleName(ValoTheme.BUTTON_DANGER);
     }
 }

@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @NoArgsConstructor
 public class EmailAddress {
     @NotEmpty(message = "'Email Address' is a mandatory field.")
-    @Email(message = "Please enter valid email address.")
+    @Email(message = "'Email Address' value is invalid.")
     String value;
 
     public EmailAddress(String value) {

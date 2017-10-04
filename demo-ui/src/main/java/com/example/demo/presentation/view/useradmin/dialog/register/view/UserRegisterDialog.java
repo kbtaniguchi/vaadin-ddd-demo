@@ -3,14 +3,10 @@ package com.example.demo.presentation.view.useradmin.dialog.register.view;
 import com.example.demo.presentation.view.useradmin.dialog.register.presenter.IUserRegisterDialog;
 import com.example.demo.presentation.view.useradmin.dialog.register.presenter.IUserRegisterPresenter;
 import com.example.demo.presentation.view.useradmin.root.view.UserAdminView;
-import com.example.demo.presentation.view.useradmin.dialog.register.view.button.ButtonBar;
-import com.example.demo.presentation.view.useradmin.dialog.register.view.form.InputForm;
 import com.vaadin.navigator.View;
 import com.vaadin.shared.ui.window.WindowMode;
 import com.vaadin.spring.annotation.SpringView;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,9 +17,7 @@ public class UserRegisterDialog extends Window implements View, IUserRegisterDia
     public static final String VIEW_NAME = "UserRegisterDialog";
     public static final String CAPTION = "User Register Dialog";
 
-    final InputForm inputForm = new InputForm();
-    final Label errorLabel = new Label("Please enter valid values.");
-    final ButtonBar buttonBar = new ButtonBar();
+    final Body body = new Body();
 
     final IUserRegisterPresenter presenter;
 
@@ -38,20 +32,14 @@ public class UserRegisterDialog extends Window implements View, IUserRegisterDia
         setCaption(CAPTION);
         setModal(true);
         setResizable(false);
-        setWidth(400, Unit.PIXELS);
+        setWidth(500, Unit.PIXELS);
         setWindowMode(WindowMode.NORMAL);
-
-        errorLabel.setVisible(false);
-        errorLabel.addStyleName("failure");
-        errorLabel.setSizeFull();
-
-        VerticalLayout layout = new VerticalLayout(inputForm, errorLabel, buttonBar);
-        setContent(layout);
+        setContent(body);
     }
 
     private void bindEventListener() {
-        buttonBar.addClickEvenListenerToSaveButton(event -> presenter.clickSaveButton(inputForm.getValueAsUser()));
-        buttonBar.addClickEventListenerToCancelButton(event -> presenter.clickCancelButton(inputForm.getValueAsUser()));
+        body.buttonBar.addClickEvenListenerToSaveButton(event -> presenter.clickSaveButton(body.inputForm.valueAsUser()));
+        body.buttonBar.addClickEventListenerToCancelButton(event -> presenter.clickCancelButton());
     }
 
     @PostConstruct
@@ -60,22 +48,19 @@ public class UserRegisterDialog extends Window implements View, IUserRegisterDia
     }
 
     @Override
-    public boolean isValid() {
-        return inputForm.isValid();
+    public boolean hasValidationErrors() {
+        return !body.inputForm.validate();
     }
 
     @Override
-    public void showErrorMessage() {
-        errorLabel.setVisible(true);
+    public void showValidationErrorMessages() {
+        body.errorLabel.setMessageAsHtml(body.inputForm.errorMessagesAsHtml());
+        body.errorLabel.setVisible(true);
     }
 
     @Override
     public void returnUserAdminView() {
-        UI.getCurrent().getNavigator().navigateTo(UserAdminView.VIEW_NAME); // note: getUI() return null
-    }
-
-    @Override
-    public void closeUserRegisterDialog() {
         close();
+        UI.getCurrent().getNavigator().navigateTo(UserAdminView.VIEW_NAME); // note: getUI() return null
     }
 }

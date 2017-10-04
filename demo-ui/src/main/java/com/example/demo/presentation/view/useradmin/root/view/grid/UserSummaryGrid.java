@@ -12,11 +12,10 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
-public class UserSummaryListGrid extends Grid<UserSummary> {
+public class UserSummaryGrid extends Grid<UserSummary> {
 
-    public UserSummaryListGrid() {
+    public UserSummaryGrid() {
         setSizeFull();
-        setSelectionMode(SelectionMode.MULTI);
 
         addColumn(userSummary -> userSummary.userId().asText()).setCaption("id");
         addColumn(userSummary -> userSummary.userName().asText()).setCaption("name");

@@ -5,20 +5,11 @@ import com.vaadin.data.BeanValidationBinder;
 import com.vaadin.ui.TextField;
 
 class EmailAddressInputField extends TextField {
-    final String caption = "Email Address";
     final BeanValidationBinder<EmailAddress> binder = new BeanValidationBinder<>(EmailAddress.class);
 
     EmailAddressInputField() {
-        setCaption(caption);
+        setCaption("Email Address");
         setSizeFull();
         binder.bind(this, "value");
-    }
-
-    boolean isValid() {
-        return binder.isValid();
-    }
-
-    EmailAddress getValueAsEmailAddress() {
-        return binder.getBean();
     }
 }

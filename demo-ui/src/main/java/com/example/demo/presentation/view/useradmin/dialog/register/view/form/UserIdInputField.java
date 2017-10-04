@@ -5,20 +5,11 @@ import com.vaadin.data.BeanValidationBinder;
 import com.vaadin.ui.TextField;
 
 class UserIdInputField extends TextField {
-    final String caption = "User Id";
     final BeanValidationBinder<UserId> binder = new BeanValidationBinder<>(UserId.class);
 
     UserIdInputField() {
-        setCaption(caption);
+        setCaption("User Id");
         setSizeFull();
         binder.bind(this, "value");
-    }
-
-    boolean isValid() {
-        return binder.isValid();
-    }
-
-    UserId getValueAsUserId() {
-        return binder.getBean();
     }
 }

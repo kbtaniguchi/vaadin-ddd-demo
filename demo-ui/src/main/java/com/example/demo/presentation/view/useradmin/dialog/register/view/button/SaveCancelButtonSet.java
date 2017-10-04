@@ -4,11 +4,11 @@ import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.HorizontalLayout;
 
-public class ButtonBar extends HorizontalLayout {
+public class SaveCancelButtonSet extends HorizontalLayout {
     final SaveButton saveButton = new SaveButton();
     final CancelButton cancelButton = new CancelButton();
 
-    public ButtonBar() {
+    public SaveCancelButtonSet() {
         HorizontalLayout buttons = new HorizontalLayout(saveButton, cancelButton);
         buttons.setMargin(false);
         addComponent(buttons);

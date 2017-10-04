@@ -3,9 +3,8 @@ package com.example.demo.presentation.view.useradmin.root.view.search;
 import com.vaadin.ui.TextField;
 
 class EmailAddressSearchField extends TextField {
-    final String caption = "Email Address";
 
     EmailAddressSearchField() {
-        setCaption(caption);
+        setCaption("Email Address");
     }
 }

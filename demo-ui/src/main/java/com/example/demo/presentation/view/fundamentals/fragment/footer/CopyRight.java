@@ -4,10 +4,9 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.themes.ValoTheme;
 
 class CopyRight extends Label {
-    final String text = "©bububu10";
 
     CopyRight() {
-        setValue(text);
+        setValue("©bububu10");
         addStyleName(ValoTheme.LABEL_TINY);
     }
 }

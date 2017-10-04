@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class UserName {
     @NotEmpty(message = "'User Name' is a mandatory field.")
-    @Size(min = 1, max = 50, message = "Please enter 'User Name' in {max} characters or less.")
+    @Size(min = 1, max = 50, message = "Max size of 'User Name' is {max}.")
     String value;
 
     public UserName(String value) {

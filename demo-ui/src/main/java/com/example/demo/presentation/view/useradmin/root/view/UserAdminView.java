@@ -19,21 +19,28 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
     Header header = new Header(CAPTION);
     Body body = new Body();
 
-    @Autowired
+    final
     IUserAdminPresenter presenter;
+
+    @Autowired
+    public UserAdminView(IUserAdminPresenter presenter) {
+        this.presenter = presenter;
+        buildLayout();
+        bindEventListener();
+    }
+
+    private void buildLayout() {
+        addHeaderAndBody(header, body);
+        setCaption(CAPTION);
+    }
+
+    private void bindEventListener() {
+        body.controlButtonSet.addClickEventListenerToRegisterButton(event -> presenter.clickRegisterButton());
+    }
 
     @PostConstruct
     void init() {
         presenter.attachView(this);
-
-        addHeaderAndBody(header, body);
-        setCaption(CAPTION);
-
-        bindEventListener();
-    }
-
-    private void bindEventListener() {
-        body.controlBar.addClickEventListenerToRegisterButton(event -> presenter.clickRegisterButton());
     }
 
     @Override

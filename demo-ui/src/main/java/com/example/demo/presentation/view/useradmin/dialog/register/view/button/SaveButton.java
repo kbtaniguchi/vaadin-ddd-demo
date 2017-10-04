@@ -4,11 +4,9 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.themes.ValoTheme;
 
 class SaveButton extends Button {
-    final String caption = "Save";
-
     SaveButton() {
-        setCaption(caption);
-        setWidth(90, Unit.PIXELS);
+        setCaption("Save");
+        setWidth(120, Unit.PIXELS);
         addStyleNames(ValoTheme.BUTTON_FRIENDLY);
     }
 }

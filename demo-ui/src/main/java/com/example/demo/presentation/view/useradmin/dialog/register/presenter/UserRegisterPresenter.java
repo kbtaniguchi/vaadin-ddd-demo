@@ -25,18 +25,16 @@ public class UserRegisterPresenter implements IUserRegisterPresenter {
 
     @Override
     public void clickSaveButton(User user) {
-        if (!view.isValid()) {
-            view.showErrorMessage();
+        if (view.hasValidationErrors()) {
+            view.showValidationErrorMessages();
             return;
         }
         userService.register(user);
         view.returnUserAdminView();
-        view.closeUserRegisterDialog();
     }
 
     @Override
-    public void clickCancelButton(User user) {
+    public void clickCancelButton() {
         view.returnUserAdminView();
-        view.closeUserRegisterDialog();
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.presentation.view.useradmin.dialog.register.view.form;
 
 import com.example.demo.domain.model.user.User;
+import com.vaadin.server.CompositeErrorMessage;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.themes.ValoTheme;
@@ -18,14 +19,28 @@ public class InputForm extends Panel {
         addStyleName(ValoTheme.PANEL_BORDERLESS);
     }
 
-    public boolean isValid() {
-        return userId.isValid() && userName.isValid() && emailAddress.isValid();
+    public boolean validate() {
+        userId.binder.validate();
+        userName.binder.validate();
+        emailAddress.binder.validate();
+        return userId.binder.isValid() && userName.binder.isValid() && emailAddress.binder.isValid();
     }
 
-    public User getValueAsUser() {
+    public String errorMessagesAsHtml() {
+        // note: getErrorMessage() always return null before binder.validate()
+        CompositeErrorMessage compositeErrorMessage = new CompositeErrorMessage(
+                userId.getErrorMessage(),
+                userName.getErrorMessage(),
+                emailAddress.getErrorMessage());
+        return String.format("%s<br/>%s",
+                compositeErrorMessage.getErrorLevel().getText(),
+                compositeErrorMessage.getFormattedHtmlMessage());
+    }
+
+    public User valueAsUser() {
         return new User(
-                userId.getValueAsUserId(),
-                userName.getValueAsUserName(),
-                emailAddress.getValueAsEmailAddress());
+                userId.binder.getBean(),
+                userName.binder.getBean(),
+                emailAddress.binder.getBean());
     }
 }

@@ -4,11 +4,9 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.themes.ValoTheme;
 
 class HeaderTitle extends Label {
-    final String text;
 
-    HeaderTitle(String text) {
-        this.text = text;
-        setValue(text);
+    HeaderTitle(String value) {
+        setValue(value);
         addStyleNames(ValoTheme.LABEL_H1, ValoTheme.LABEL_NO_MARGIN);
     }
 }

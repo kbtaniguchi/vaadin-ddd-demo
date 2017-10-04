@@ -5,20 +5,11 @@ import com.vaadin.data.BeanValidationBinder;
 import com.vaadin.ui.TextField;
 
 class UserNameInputField extends TextField {
-    final String caption = "Name";
     final BeanValidationBinder<UserName> binder = new BeanValidationBinder<>(UserName.class);
 
     UserNameInputField() {
-        setCaption(caption);
+        setCaption("User Name");
         setSizeFull();
         binder.bind(this, "value");
-    }
-
-    boolean isValid() {
-        return binder.isValid();
-    }
-
-    UserName getValueAsUserName() {
-        return binder.getBean();
     }
 }

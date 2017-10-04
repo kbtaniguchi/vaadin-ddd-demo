@@ -8,5 +8,5 @@ public interface IUserRegisterPresenter {
 
     void clickSaveButton(User user);
 
-    void clickCancelButton(User user);
+    void clickCancelButton();
 }

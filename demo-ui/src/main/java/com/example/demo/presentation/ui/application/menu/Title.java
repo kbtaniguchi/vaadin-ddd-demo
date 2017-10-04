@@ -4,10 +4,9 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.themes.ValoTheme;
 
 class Title extends Label {
-    final String text = "demo application";
 
     Title() {
+        setValue("demo application");
         addStyleName(ValoTheme.MENU_TITLE);
-        setValue(text);
     }
 }

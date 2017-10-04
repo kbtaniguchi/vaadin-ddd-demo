@@ -2,11 +2,9 @@ package com.example.demo.presentation.view.useradmin.dialog.register.presenter;
 
 public interface IUserRegisterDialog {
 
-    boolean isValid();
+    boolean hasValidationErrors();
 
-    void showErrorMessage();
+    void showValidationErrorMessages();
 
     void returnUserAdminView();
-
-    void closeUserRegisterDialog();
 }
