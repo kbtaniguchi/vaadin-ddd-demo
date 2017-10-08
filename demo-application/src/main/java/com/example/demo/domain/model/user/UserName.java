@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 public class UserName {
-    @NotEmpty(message = "'User Name' is a mandatory field.")
+    @NotEmpty(message = "'User Name' is mandatory.")
     @Size(min = 1, max = 50, message = "Max size of 'User Name' is {max}.")
     String value;
 
@@ -19,5 +19,13 @@ public class UserName {
 
     public String asText() {
         return value;
+    }
+
+    public static String caption() {
+        return "User Name";
+    }
+
+    public static String propertyName() {
+        return "value";
     }
 }

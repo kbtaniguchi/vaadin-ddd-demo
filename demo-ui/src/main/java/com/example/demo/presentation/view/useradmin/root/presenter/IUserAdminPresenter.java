@@ -4,5 +4,5 @@ public interface IUserAdminPresenter {
 
     void attachView(IUserAdminView view);
 
-    void clickRegisterButton();
+    void clickAddButton();
 }

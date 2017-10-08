@@ -1,42 +1,21 @@
 package com.example.demo.domain.model.user.summary;
 
-import com.example.demo.domain.model.user.EmailAddress;
-import com.example.demo.domain.model.user.UserId;
-import com.example.demo.domain.model.user.UserName;
+import com.example.demo.domain.model.fudamentals.audit.Audit;
 
 public class UserSummary {
-    UserId userId;
-    UserName name;
-    EmailAddress emailAddress;
-    CreateDateTime createDateTime;
-    UpdateDateTime updateDateTime;
+    UserProfile profile;
+    Audit audit;
 
-    public UserSummary(UserId userId, UserName name, EmailAddress emailAddress,
-                       CreateDateTime createDateTime, UpdateDateTime updateDateTime) {
-        this.userId = userId;
-        this.name = name;
-        this.emailAddress = emailAddress;
-        this.createDateTime = createDateTime;
-        this.updateDateTime = updateDateTime;
+    public UserSummary(UserProfile profile, Audit audit) {
+        this.profile = profile;
+        this.audit = audit;
     }
 
-    public UserId userId() {
-        return userId;
+    public UserProfile profile() {
+        return profile;
     }
 
-    public UserName userName() {
-        return name;
-    }
-
-    public EmailAddress emailAddress() {
-        return emailAddress;
-    }
-
-    public CreateDateTime createDateTime() {
-        return createDateTime;
-    }
-
-    public UpdateDateTime updateDateTime() {
-        return updateDateTime;
+    public Audit audit() {
+        return audit;
     }
 }

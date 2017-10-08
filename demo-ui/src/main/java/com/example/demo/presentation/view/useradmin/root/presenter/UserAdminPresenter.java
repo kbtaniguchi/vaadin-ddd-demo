@@ -19,7 +19,7 @@ public class UserAdminPresenter implements IUserAdminPresenter {
     }
 
     @Override
-    public void clickRegisterButton() {
+    public void clickAddButton() {
         view.launchUserRegisterDialog();
     }
 }

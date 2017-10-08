@@ -8,7 +8,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Data
 @NoArgsConstructor
 public class EmailAddress {
-    @NotEmpty(message = "'Email Address' is a mandatory field.")
+    @NotEmpty(message = "'Email Address' is mandatory.")
     @Email(message = "'Email Address' value is invalid.")
     String value;
 
@@ -18,5 +18,13 @@ public class EmailAddress {
 
     public String asText() {
         return value;
+    }
+
+    public static String caption() {
+        return "Email Address";
+    }
+
+    public static String propertyName() {
+        return "value";
     }
 }
