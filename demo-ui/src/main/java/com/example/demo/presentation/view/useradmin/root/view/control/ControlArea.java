@@ -15,19 +15,21 @@ public class ControlArea extends HorizontalLayout {
         addEditDeleteButtons.addButton.addClickListener(clickListener);
     }
 
-    public void activateEditButton() {
-        addEditDeleteButtons.editButton.setEnabled(true);
-    }
-
-    public void deactivateEditButton() {
+    public void toStateOfOnlyCanAdd() {
+        addEditDeleteButtons.addButton.setEnabled(true);
         addEditDeleteButtons.editButton.setEnabled(false);
+        addEditDeleteButtons.deleteButton.setEnabled(false);
     }
 
-    public void activateDeleteButton() {
+    public void toStateOfCanAll() {
+        addEditDeleteButtons.addButton.setEnabled(true);
+        addEditDeleteButtons.editButton.setEnabled(true);
         addEditDeleteButtons.deleteButton.setEnabled(true);
     }
 
-    public void deactivateDeleteButton() {
-        addEditDeleteButtons.deleteButton.setEnabled(false);
+    public void toStateOfCanAddAndDelete() {
+        addEditDeleteButtons.addButton.setEnabled(true);
+        addEditDeleteButtons.editButton.setEnabled(false);
+        addEditDeleteButtons.deleteButton.setEnabled(true);
     }
 }

@@ -27,19 +27,8 @@ public class UserAdminPresenter implements IUserAdminPresenter {
 
     @Override
     public void selectGrid(UserSummaries selections) {
-        if (selections.isEmpty()) {
-            view.deactivateEditButton();
-            view.deactivateDeleteButton();
-            return;
-        }
-        if (selections.isSingle()) {
-            view.activateEditButton();
-            return;
-        }
-        if (selections.isMultiple()) {
-            view.deactivateEditButton();
-            view.activateDeleteButton();
-            return;
-        }
+        if (selections.isEmpty()) view.toStateOfOnlyCanAdd();
+        if (selections.isSingle()) view.toStateOfCanAll();
+        if (selections.isMultiple()) view.toStateOfCanAddAndDelete();
     }
 }

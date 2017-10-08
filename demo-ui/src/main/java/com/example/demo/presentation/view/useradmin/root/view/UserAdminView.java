@@ -39,24 +39,18 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
     }
 
     @Override
-    public void activateEditButton() {
-        viewBody.controlArea.activateEditButton();
+    public void toStateOfOnlyCanAdd() {
+        viewBody.controlArea.toStateOfOnlyCanAdd();
     }
 
     @Override
-    public void deactivateEditButton() {
-        viewBody.controlArea.deactivateEditButton();
+    public void toStateOfCanAll() {
+        viewBody.controlArea.toStateOfCanAll();
     }
 
     @Override
-    public void activateDeleteButton() {
-        viewBody.controlArea.activateDeleteButton();
-        ;
-    }
-
-    @Override
-    public void deactivateDeleteButton() {
-        viewBody.controlArea.deactivateDeleteButton();
+    public void toStateOfCanAddAndDelete() {
+        viewBody.controlArea.toStateOfCanAddAndDelete();
     }
 
     @Override

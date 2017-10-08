@@ -12,9 +12,10 @@ class AddEditDeleteButtons extends CssLayout {
     final DeleteButton deleteButton = new DeleteButton();
 
     AddEditDeleteButtons() {
-        editButton.setEnabled(false);
-        deleteButton.setEnabled(false);
         addComponents(addButton, editButton, deleteButton);
         addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
+
+        editButton.setEnabled(false);
+        deleteButton.setEnabled(false);
     }
 }

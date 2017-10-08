@@ -5,6 +5,6 @@ import com.vaadin.ui.TextField;
 class SearchTextField extends TextField {
 
     SearchTextField() {
-        setPlaceholder("search word...");
+        setPlaceholder("search user");
     }
 }

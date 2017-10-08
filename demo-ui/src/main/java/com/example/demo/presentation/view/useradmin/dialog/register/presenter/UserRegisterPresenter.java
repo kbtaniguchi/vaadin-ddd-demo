@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserRegisterPresenter implements IUserRegisterPresenter {
     IUserRegisterDialog view;
 
-    final UserService userService;
+    UserService userService;
 
     @Autowired
     public UserRegisterPresenter(UserService userService) {

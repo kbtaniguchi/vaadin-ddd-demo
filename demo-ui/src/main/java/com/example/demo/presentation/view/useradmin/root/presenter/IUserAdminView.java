@@ -2,13 +2,11 @@ package com.example.demo.presentation.view.useradmin.root.presenter;
 
 public interface IUserAdminView {
 
-    void activateEditButton();
+    void toStateOfOnlyCanAdd();
 
-    void deactivateEditButton();
+    void toStateOfCanAll();
 
-    void activateDeleteButton();
-
-    void deactivateDeleteButton();
+    void toStateOfCanAddAndDelete();
 
     void clearAllGridSelections();
 
