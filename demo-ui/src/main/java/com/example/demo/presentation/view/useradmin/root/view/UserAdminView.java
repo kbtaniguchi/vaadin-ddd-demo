@@ -3,7 +3,6 @@ package com.example.demo.presentation.view.useradmin.root.view;
 import com.example.demo.domain.model.user.summary.UserSummaries;
 import com.example.demo.presentation.view.fundamentals.fragment.header.ViewHeader;
 import com.example.demo.presentation.view.fundamentals.layout.BaseViewLayout;
-import com.example.demo.presentation.view.useradmin.dialog.delete.presenter.IDeleteConfirmDialog;
 import com.example.demo.presentation.view.useradmin.dialog.delete.view.DeleteConfirmDialog;
 import com.example.demo.presentation.view.useradmin.dialog.register.view.UserRegisterDialog;
 import com.example.demo.presentation.view.useradmin.root.presenter.IUserAdminPresenter;
@@ -44,11 +43,6 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
         viewBody.controlArea.addClickEventListenerToAddButton(e -> presenter.clickAddButton());
         viewBody.controlArea.addClickEventListenerToDeleteButton(e -> presenter.clickDeleteButton());
         viewBody.userSummaryGrid.addSelectionListener(e -> presenter.selectGrid(viewBody.userSummaryGrid.allSelections()));
-
-        View sourceView = event.getOldView();
-        if(sourceView instanceof IDeleteConfirmDialog) {
-
-        }
     }
 
     @Override
@@ -64,11 +58,6 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
     @Override
     public void toStateOfCanAddAndDelete() {
         viewBody.controlArea.toStateOfCanAddAndDelete();
-    }
-
-    @Override
-    public void clearAllGridSelections() {
-        viewBody.userSummaryGrid.deselectAll();
     }
 
     @Override

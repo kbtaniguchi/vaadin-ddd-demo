@@ -29,7 +29,6 @@ public class UserAdminPresenter implements IUserAdminPresenter {
 
     @Override
     public void clickAddButton() {
-        view.clearAllGridSelections();
         view.launchUserRegisterDialog();
     }
 

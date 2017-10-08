@@ -10,8 +10,6 @@ public interface IUserAdminView {
 
     void toStateOfCanAddAndDelete();
 
-    void clearAllGridSelections();
-
     void launchUserRegisterDialog();
 
     void launchDeleteConfirmDialog();
