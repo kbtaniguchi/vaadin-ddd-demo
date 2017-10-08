@@ -8,5 +8,6 @@ public class DeleteButton extends Button {
     public DeleteButton() {
         setIcon(VaadinIcons.TRASH, "Delete");
         addStyleName(ValoTheme.BUTTON_DANGER);
+        addStyleName(ValoTheme.BUTTON_ICON_ONLY);
     }
 }

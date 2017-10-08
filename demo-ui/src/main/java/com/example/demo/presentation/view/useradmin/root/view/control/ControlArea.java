@@ -5,13 +5,29 @@ import com.vaadin.ui.HorizontalLayout;
 
 public class ControlArea extends HorizontalLayout {
     final SearchField searchField = new SearchField();
-    final AddDeleteButtons addDeleteButtons = new AddDeleteButtons();
+    final AddEditDeleteButtons addEditDeleteButtons = new AddEditDeleteButtons();
 
     public ControlArea() {
-        addComponents(searchField, addDeleteButtons);
+        addComponents(searchField, addEditDeleteButtons);
     }
 
     public void addClickEventListenerToAddButton(ClickListener clickListener) {
-        addDeleteButtons.addButton.addClickListener(clickListener);
+        addEditDeleteButtons.addButton.addClickListener(clickListener);
+    }
+
+    public void activateEditButton() {
+        addEditDeleteButtons.editButton.setEnabled(true);
+    }
+
+    public void deactivateEditButton() {
+        addEditDeleteButtons.editButton.setEnabled(false);
+    }
+
+    public void activateDeleteButton() {
+        addEditDeleteButtons.deleteButton.setEnabled(true);
+    }
+
+    public void deactivateDeleteButton() {
+        addEditDeleteButtons.deleteButton.setEnabled(false);
     }
 }

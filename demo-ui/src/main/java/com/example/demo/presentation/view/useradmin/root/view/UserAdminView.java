@@ -1,5 +1,6 @@
 package com.example.demo.presentation.view.useradmin.root.view;
 
+import com.example.demo.domain.model.user.summary.UserSummaries;
 import com.example.demo.presentation.view.fundamentals.fragment.header.ViewHeader;
 import com.example.demo.presentation.view.fundamentals.layout.BaseViewLayout;
 import com.example.demo.presentation.view.useradmin.dialog.register.view.UserRegisterDialog;
@@ -29,11 +30,38 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
         addHeaderAndBody(viewHeader, viewBody);
 
         viewBody.controlArea.addClickEventListenerToAddButton(event -> presenter.clickAddButton());
+        viewBody.userSummaryGrid.addSelectionListener(event -> presenter.selectGrid(new UserSummaries(event.getAllSelectedItems())));
     }
 
     @PostConstruct
     void init() {
         presenter.attachView(this);
+    }
+
+    @Override
+    public void activateEditButton() {
+        viewBody.controlArea.activateEditButton();
+    }
+
+    @Override
+    public void deactivateEditButton() {
+        viewBody.controlArea.deactivateEditButton();
+    }
+
+    @Override
+    public void activateDeleteButton() {
+        viewBody.controlArea.activateDeleteButton();
+        ;
+    }
+
+    @Override
+    public void deactivateDeleteButton() {
+        viewBody.controlArea.deactivateDeleteButton();
+    }
+
+    @Override
+    public void clearAllGridSelections() {
+        viewBody.userSummaryGrid.deselectAll();
     }
 
     @Override

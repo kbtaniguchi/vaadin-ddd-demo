@@ -18,6 +18,7 @@ public class UserSummaryGrid extends Grid<UserSummary> {
 
     public UserSummaryGrid() {
         setSizeFull();
+        setSelectionMode(SelectionMode.MULTI);
 
         addColumn(userSummary -> userSummary.profile().userId().asText()).setCaption("id");
         addColumn(userSummary -> userSummary.profile().userName().asText()).setCaption("name");
@@ -44,4 +45,5 @@ public class UserSummaryGrid extends Grid<UserSummary> {
                         new CreatedAt(LocalDateTime.now()),
                         new UpdatedAt(LocalDateTime.now())));
     }
+
 }
