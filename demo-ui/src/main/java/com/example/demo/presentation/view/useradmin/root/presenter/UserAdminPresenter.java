@@ -24,6 +24,11 @@ public class UserAdminPresenter implements IUserAdminPresenter {
     }
 
     @Override
+    public void loadUserSummaries() {
+        view.reflectToGridFrom(userSummaryService.allUserSummaries());
+    }
+
+    @Override
     public void onClickAddButton() {
         view.launchUserRegisterDialog();
     }

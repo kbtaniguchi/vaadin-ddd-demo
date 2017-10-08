@@ -10,7 +10,7 @@ public class UserSummaryService {
     @Autowired
     UserSummaryRepository userSummaryRepository;
 
-    UserSummaries allUserSummaries() {
+    public UserSummaries allUserSummaries() {
         return userSummaryRepository.findAll();
     }
 }

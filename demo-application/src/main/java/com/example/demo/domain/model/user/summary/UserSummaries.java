@@ -1,6 +1,7 @@
 package com.example.demo.domain.model.user.summary;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -30,5 +31,9 @@ public class UserSummaries {
 
     public void forEach(Consumer<UserSummary> consumer) {
         values.forEach(consumer);
+    }
+
+    public List<UserSummary> asList() {
+        return Collections.unmodifiableList(values);
     }
 }

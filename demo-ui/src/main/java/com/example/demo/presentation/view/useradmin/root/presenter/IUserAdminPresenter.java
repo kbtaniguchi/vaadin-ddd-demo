@@ -6,6 +6,8 @@ public interface IUserAdminPresenter {
 
     void attachView(IUserAdminView view);
 
+    void loadUserSummaries();
+
     void onClickAddButton();
 
     void onClickDeleteButton();

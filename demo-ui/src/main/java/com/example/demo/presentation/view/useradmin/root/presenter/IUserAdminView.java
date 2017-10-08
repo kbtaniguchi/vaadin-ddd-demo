@@ -4,6 +4,8 @@ import com.example.demo.domain.model.user.summary.UserSummaries;
 
 public interface IUserAdminView {
 
+    void reflectToGridFrom(UserSummaries userSummaries);
+
     void toStateOfOnlyCanAdd();
 
     void toStateOfCanAll();

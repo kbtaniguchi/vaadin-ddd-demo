@@ -36,6 +36,7 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
     @PostConstruct
     void init() {
         presenter.attachView(this);
+        presenter.loadUserSummaries();
     }
 
     @Override
@@ -43,6 +44,11 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
         viewBody.controlArea.addClickEventListenerToAddButton(e -> presenter.onClickAddButton());
         viewBody.controlArea.addClickEventListenerToDeleteButton(e -> presenter.onClickDeleteButton());
         viewBody.userSummaryGrid.addSelectionListener(e -> presenter.onSelectGrid(viewBody.userSummaryGrid.allSelections()));
+    }
+
+    @Override
+    public void reflectToGridFrom(UserSummaries userSummaries) {
+        viewBody.userSummaryGrid.reflectFrom(userSummaries);
     }
 
     @Override
