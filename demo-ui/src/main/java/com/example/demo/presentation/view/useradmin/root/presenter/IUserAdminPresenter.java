@@ -6,10 +6,10 @@ public interface IUserAdminPresenter {
 
     void attachView(IUserAdminView view);
 
-    void clickAddButton();
+    void onClickAddButton();
 
-    void clickDeleteButton();
+    void onClickDeleteButton();
 
-    void selectGrid(UserSummaries selections);
+    void onSelectGrid(UserSummaries selections);
 
 }

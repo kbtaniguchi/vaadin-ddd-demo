@@ -39,7 +39,7 @@ public abstract class FormDialog extends Window {
         errorDisplay.setMessageAsHtml(messageAsHtml);
     }
 
-    protected void visualizeErrorMessage() {
-        errorDisplay.setVisible(true);
+    protected void setVisibleOfErrorDisplay(boolean visible) {
+        errorDisplay.setVisible(visible);
     }
 }

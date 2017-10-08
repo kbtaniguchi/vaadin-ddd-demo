@@ -6,5 +6,7 @@ public interface IUserRegisterDialog {
 
     void showValidationErrorMessages();
 
+    void hideErrorMessages();
+
     void returnUserAdminView();
 }

@@ -40,9 +40,9 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
 
     @Override
     public void enter(ViewChangeEvent event) {
-        viewBody.controlArea.addClickEventListenerToAddButton(e -> presenter.clickAddButton());
-        viewBody.controlArea.addClickEventListenerToDeleteButton(e -> presenter.clickDeleteButton());
-        viewBody.userSummaryGrid.addSelectionListener(e -> presenter.selectGrid(viewBody.userSummaryGrid.allSelections()));
+        viewBody.controlArea.addClickEventListenerToAddButton(e -> presenter.onClickAddButton());
+        viewBody.controlArea.addClickEventListenerToDeleteButton(e -> presenter.onClickDeleteButton());
+        viewBody.userSummaryGrid.addSelectionListener(e -> presenter.onSelectGrid(viewBody.userSummaryGrid.allSelections()));
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.example.demo.presentation.view.useradmin.root.presenter;
 
-import com.example.demo.application.service.user.UserService;
 import com.example.demo.application.service.user.summary.UserSummaryService;
 import com.example.demo.domain.model.user.summary.UserSummaries;
 import com.vaadin.spring.annotation.SpringComponent;
@@ -13,13 +12,10 @@ public class UserAdminPresenter implements IUserAdminPresenter {
     IUserAdminView view;
 
     UserSummaryService userSummaryService;
-    UserService userService;
 
     @Autowired
-    public UserAdminPresenter(UserSummaryService userSummaryService,
-                              UserService userService) {
+    public UserAdminPresenter(UserSummaryService userSummaryService) {
         this.userSummaryService = userSummaryService;
-        this.userService = userService;
     }
 
     @Override
@@ -28,17 +24,17 @@ public class UserAdminPresenter implements IUserAdminPresenter {
     }
 
     @Override
-    public void clickAddButton() {
+    public void onClickAddButton() {
         view.launchUserRegisterDialog();
     }
 
     @Override
-    public void clickDeleteButton() {
+    public void onClickDeleteButton() {
         view.launchDeleteConfirmDialog();
     }
 
     @Override
-    public void selectGrid(UserSummaries selections) {
+    public void onSelectGrid(UserSummaries selections) {
         if (selections.isEmpty()) view.toStateOfOnlyCanAdd();
         if (selections.isSingle()) view.toStateOfCanAll();
         if (selections.isMultiple()) view.toStateOfCanAddAndDelete();

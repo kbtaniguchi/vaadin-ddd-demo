@@ -33,8 +33,8 @@ public class DeleteConfirmDialog extends ConfirmDialog implements View, IDeleteC
     @Override
     public void enter(ViewChangeEvent event) {
         IUserAdminView sourceView = (IUserAdminView) event.getOldView();
-        addClickListenerToOkButton(e -> presenter.clickOkButton(sourceView.allGridSelections()));
-        addClickListenerToCancelButton(e -> presenter.clickCancelButton());
+        addClickListenerToOkButton(e -> presenter.onClickOkButton(sourceView.allGridSelections()));
+        addClickListenerToCancelButton(e -> presenter.onClickCancelButton());
     }
 
     @Override

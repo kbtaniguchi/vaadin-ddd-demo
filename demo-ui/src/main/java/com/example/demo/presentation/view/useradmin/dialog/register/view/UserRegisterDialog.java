@@ -35,8 +35,8 @@ public class UserRegisterDialog extends FormDialog implements View, IUserRegiste
 
     @Override
     public void enter(ViewChangeEvent event) {
-        addClickEvenListenerToSaveButton(e -> presenter.clickSaveButton(form.valueAsUser()));
-        addClickEventListenerToCancelButton(e -> presenter.clickCancelButton());
+        addClickEvenListenerToSaveButton(e -> presenter.onClickSaveButton(form.valueAsUser()));
+        addClickEventListenerToCancelButton(e -> presenter.onClickCancelButton());
     }
 
     @Override
@@ -48,7 +48,12 @@ public class UserRegisterDialog extends FormDialog implements View, IUserRegiste
     public void showValidationErrorMessages() {
         form.validate();
         setErrorMessageAsHtml(form.errorMessagesAsHtml());
-        visualizeErrorMessage();
+        setVisibleOfErrorDisplay(true);
+    }
+
+    @Override
+    public void hideErrorMessages() {
+        setVisibleOfErrorDisplay(false);
     }
 
     @Override

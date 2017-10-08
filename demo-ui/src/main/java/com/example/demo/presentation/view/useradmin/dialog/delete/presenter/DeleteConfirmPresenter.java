@@ -4,6 +4,7 @@ import com.example.demo.application.service.user.UserService;
 import com.example.demo.domain.model.user.summary.UserSummaries;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.spring.annotation.ViewScope;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @SpringComponent
 @ViewScope
@@ -12,6 +13,7 @@ public class DeleteConfirmPresenter implements IDeleteConfirmPresenter {
 
     UserService userService;
 
+    @Autowired
     public DeleteConfirmPresenter(UserService userService) {
         this.userService = userService;
     }
@@ -22,13 +24,13 @@ public class DeleteConfirmPresenter implements IDeleteConfirmPresenter {
     }
 
     @Override
-    public void clickOkButton(UserSummaries userSummaries) {
+    public void onClickOkButton(UserSummaries userSummaries) {
         userSummaries.forEach(userSummary -> userService.delete(userSummary.profile().userId()));
         view.returnUserAdminView();
     }
 
     @Override
-    public void clickCancelButton() {
+    public void onClickCancelButton() {
         view.returnUserAdminView();
     }
 

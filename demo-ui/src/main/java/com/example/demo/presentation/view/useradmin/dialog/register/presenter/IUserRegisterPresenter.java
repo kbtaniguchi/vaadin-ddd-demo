@@ -6,7 +6,7 @@ public interface IUserRegisterPresenter {
 
     void attachView(IUserRegisterDialog view);
 
-    void clickSaveButton(User user);
+    void onClickSaveButton(User user);
 
-    void clickCancelButton();
+    void onClickCancelButton();
 }

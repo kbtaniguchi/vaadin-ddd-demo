@@ -6,7 +6,7 @@ public interface IDeleteConfirmPresenter {
 
     void attachView(IDeleteConfirmDialog view);
 
-    void clickOkButton(UserSummaries userSummaries);
+    void onClickOkButton(UserSummaries userSummaries);
 
-    void clickCancelButton();
+    void onClickCancelButton();
 }
