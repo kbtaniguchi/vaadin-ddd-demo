@@ -3,11 +3,11 @@ package com.example.demo.presentation.view.useradmin.root.view.control;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.HorizontalLayout;
 
-public class GridControlArea extends HorizontalLayout {
+public class ControlArea extends HorizontalLayout {
     final SearchField searchField = new SearchField();
     final AddDeleteButtons addDeleteButtons = new AddDeleteButtons();
 
-    public GridControlArea() {
+    public ControlArea() {
         addComponents(searchField, addDeleteButtons);
     }
 

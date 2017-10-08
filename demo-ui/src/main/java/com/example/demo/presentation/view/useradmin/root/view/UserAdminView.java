@@ -28,7 +28,7 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
 
         addHeaderAndBody(viewHeader, viewBody);
 
-        viewBody.gridControlArea.addClickEventListenerToAddButton(event -> presenter.clickAddButton());
+        viewBody.controlArea.addClickEventListenerToAddButton(event -> presenter.clickAddButton());
     }
 
     @PostConstruct
