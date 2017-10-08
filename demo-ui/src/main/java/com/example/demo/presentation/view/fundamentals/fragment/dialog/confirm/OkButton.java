@@ -1,10 +1,10 @@
-package com.example.demo.presentation.view.fundamentals.fragment.dialog.message;
+package com.example.demo.presentation.view.fundamentals.fragment.dialog.confirm;
 
 import com.vaadin.ui.Button;
 
 class OkButton extends Button {
     OkButton() {
-        setCaption("Cancel");
+        setCaption("Ok");
         setWidth(120, Unit.PIXELS);
     }
 }

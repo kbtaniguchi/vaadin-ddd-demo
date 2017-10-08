@@ -1,5 +1,6 @@
 package com.example.demo.presentation.view.useradmin.root.presenter;
 
+import com.example.demo.application.service.user.UserService;
 import com.example.demo.application.service.user.summary.UserSummaryService;
 import com.example.demo.domain.model.user.summary.UserSummaries;
 import com.vaadin.spring.annotation.SpringComponent;
@@ -11,8 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserAdminPresenter implements IUserAdminPresenter {
     IUserAdminView view;
 
-    @Autowired
     UserSummaryService userSummaryService;
+    UserService userService;
+
+    @Autowired
+    public UserAdminPresenter(UserSummaryService userSummaryService,
+                              UserService userService) {
+        this.userSummaryService = userSummaryService;
+        this.userService = userService;
+    }
 
     @Override
     public void attachView(IUserAdminView view) {
@@ -23,6 +31,11 @@ public class UserAdminPresenter implements IUserAdminPresenter {
     public void clickAddButton() {
         view.clearAllGridSelections();
         view.launchUserRegisterDialog();
+    }
+
+    @Override
+    public void clickDeleteButton() {
+        view.launchDeleteConfirmDialog();
     }
 
     @Override

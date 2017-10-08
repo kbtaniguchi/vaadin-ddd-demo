@@ -3,6 +3,7 @@ package com.example.demo.domain.model.user.summary;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 
 public class UserSummaries {
     List<UserSummary> values;
@@ -25,5 +26,9 @@ public class UserSummaries {
 
     public boolean isMultiple() {
         return values.size() > 1;
+    }
+
+    public void forEach(Consumer<UserSummary> consumer) {
+        values.forEach(consumer);
     }
 }

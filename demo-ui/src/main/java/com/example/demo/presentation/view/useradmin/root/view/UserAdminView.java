@@ -3,10 +3,13 @@ package com.example.demo.presentation.view.useradmin.root.view;
 import com.example.demo.domain.model.user.summary.UserSummaries;
 import com.example.demo.presentation.view.fundamentals.fragment.header.ViewHeader;
 import com.example.demo.presentation.view.fundamentals.layout.BaseViewLayout;
+import com.example.demo.presentation.view.useradmin.dialog.delete.presenter.IDeleteConfirmDialog;
+import com.example.demo.presentation.view.useradmin.dialog.delete.view.DeleteConfirmDialog;
 import com.example.demo.presentation.view.useradmin.dialog.register.view.UserRegisterDialog;
 import com.example.demo.presentation.view.useradmin.root.presenter.IUserAdminPresenter;
 import com.example.demo.presentation.view.useradmin.root.presenter.IUserAdminView;
 import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.spring.annotation.SpringView;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -24,18 +27,28 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
 
     @Autowired
     public UserAdminView(IUserAdminPresenter presenter) {
+        super();
         this.presenter = presenter;
         setCaption(CAPTION);
 
         addHeaderAndBody(viewHeader, viewBody);
-
-        viewBody.controlArea.addClickEventListenerToAddButton(event -> presenter.clickAddButton());
-        viewBody.userSummaryGrid.addSelectionListener(event -> presenter.selectGrid(new UserSummaries(event.getAllSelectedItems())));
     }
 
     @PostConstruct
     void init() {
         presenter.attachView(this);
+    }
+
+    @Override
+    public void enter(ViewChangeEvent event) {
+        viewBody.controlArea.addClickEventListenerToAddButton(e -> presenter.clickAddButton());
+        viewBody.controlArea.addClickEventListenerToDeleteButton(e -> presenter.clickDeleteButton());
+        viewBody.userSummaryGrid.addSelectionListener(e -> presenter.selectGrid(viewBody.userSummaryGrid.allSelections()));
+
+        View sourceView = event.getOldView();
+        if(sourceView instanceof IDeleteConfirmDialog) {
+
+        }
     }
 
     @Override
@@ -59,7 +72,17 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
     }
 
     @Override
+    public UserSummaries allGridSelections() {
+        return viewBody.userSummaryGrid.allSelections();
+    }
+
+    @Override
     public void launchUserRegisterDialog() {
         getUI().getNavigator().navigateTo(UserRegisterDialog.VIEW_NAME);
+    }
+
+    @Override
+    public void launchDeleteConfirmDialog() {
+        getUI().getNavigator().navigateTo(DeleteConfirmDialog.VIEW_NAME);
     }
 }

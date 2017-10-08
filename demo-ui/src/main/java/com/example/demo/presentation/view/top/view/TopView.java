@@ -14,6 +14,7 @@ public class TopView extends BaseViewLayout implements View {
     final TopViewBody viewBody = new TopViewBody();
 
     public TopView() {
+        super();
         addHeaderAndBody(viewHeader, viewBody);
         setCaption(CAPTION);
     }

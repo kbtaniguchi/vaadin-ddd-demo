@@ -7,6 +7,7 @@ import com.example.demo.domain.model.user.EmailAddress;
 import com.example.demo.domain.model.user.UserId;
 import com.example.demo.domain.model.user.UserName;
 import com.example.demo.domain.model.user.summary.UserProfile;
+import com.example.demo.domain.model.user.summary.UserSummaries;
 import com.example.demo.domain.model.user.summary.UserSummary;
 import com.vaadin.ui.Grid;
 
@@ -44,6 +45,10 @@ public class UserSummaryGrid extends Grid<UserSummary> {
                 new Audit(
                         new CreatedAt(LocalDateTime.now()),
                         new UpdatedAt(LocalDateTime.now())));
+    }
+
+    public UserSummaries allSelections() {
+        return new UserSummaries(getSelectedItems());
     }
 
 }

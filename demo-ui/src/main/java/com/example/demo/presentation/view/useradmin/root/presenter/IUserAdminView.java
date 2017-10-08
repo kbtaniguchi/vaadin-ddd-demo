@@ -1,5 +1,7 @@
 package com.example.demo.presentation.view.useradmin.root.presenter;
 
+import com.example.demo.domain.model.user.summary.UserSummaries;
+
 public interface IUserAdminView {
 
     void toStateOfOnlyCanAdd();
@@ -12,4 +14,7 @@ public interface IUserAdminView {
 
     void launchUserRegisterDialog();
 
+    void launchDeleteConfirmDialog();
+
+    UserSummaries allGridSelections();
 }

@@ -8,5 +8,8 @@ public interface IUserAdminPresenter {
 
     void clickAddButton();
 
+    void clickDeleteButton();
+
     void selectGrid(UserSummaries selections);
+
 }

@@ -5,6 +5,7 @@ import com.example.demo.presentation.view.useradmin.dialog.register.presenter.IU
 import com.example.demo.presentation.view.useradmin.dialog.register.presenter.IUserRegisterPresenter;
 import com.example.demo.presentation.view.useradmin.root.view.UserAdminView;
 import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.UI;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,17 @@ public class UserRegisterDialog extends FormDialog implements View, IUserRegiste
         this.presenter = presenter;
 
         setForm(form);
-        addClickEvenListenerToSaveButton(event -> presenter.clickSaveButton(form.valueAsUser()));
-        addClickEventListenerToCancelButton(event -> presenter.clickCancelButton());
     }
 
     @PostConstruct
     void init() {
         presenter.attachView(this);
+    }
+
+    @Override
+    public void enter(ViewChangeEvent event) {
+        addClickEvenListenerToSaveButton(e -> presenter.clickSaveButton(form.valueAsUser()));
+        addClickEventListenerToCancelButton(e -> presenter.clickCancelButton());
     }
 
     @Override
@@ -48,7 +53,8 @@ public class UserRegisterDialog extends FormDialog implements View, IUserRegiste
 
     @Override
     public void returnUserAdminView() {
+        // note: getUI() return null
         close();
-        UI.getCurrent().getNavigator().navigateTo(UserAdminView.VIEW_NAME); // note: getUI() return null
+        UI.getCurrent().getNavigator().navigateTo(UserAdminView.VIEW_NAME);
     }
 }
