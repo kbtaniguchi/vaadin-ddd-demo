@@ -39,6 +39,7 @@ This application has multi projects.
 
 * Lombok https://projectlombok.org/
   * do away with boilerplate code from domain model
+  * for resolution accessor and constructor which ui binder require
 
 * Build tool: Gradle https://gradle.org/
 * IDE: IntelliJ IDEA https://www.jetbrains.com/idea/
