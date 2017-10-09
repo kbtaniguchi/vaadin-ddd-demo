@@ -25,16 +25,23 @@ This application has multi projects.
   * Presenter: not depending on Vaadin, depending on domain & application layer
   * View: depending on Vaadin and domain layer
 
-### framework & tool
+### frameworks
 
 * Web Application framework: Spring Boot https://projects.spring.io/spring-boot/ 
 * UI framework: Vaadin Framework https://vaadin.com/framework
+* SQL mapper: MyBatis http://blog.mybatis.org/
+
+### supported database
+
+* Database: PostgreSQL https://www.postgresql.org/
+
+### libraries and tools
+
+* Lombok https://projectlombok.org/
+  * do away with boilerplate code from domain model
 
 * Build tool: Gradle https://gradle.org/
 * IDE: IntelliJ IDEA https://www.jetbrains.com/idea/
-
-* SQL mapper: MyBatis http://blog.mybatis.org/
-* Database: PostgreSQL https://www.postgresql.org/
 
 ## Usage
 

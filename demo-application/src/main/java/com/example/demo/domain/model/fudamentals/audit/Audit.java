@@ -1,8 +1,5 @@
 package com.example.demo.domain.model.fudamentals.audit;
 
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor
 public class Audit {
     CreatedAt createdAt;
     UpdatedAt updatedAt;
