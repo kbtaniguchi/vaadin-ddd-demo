@@ -1,6 +1,5 @@
 package com.example.demo.presentation.view.useradmin.dialog.edit.view;
 
-import com.example.demo.domain.model.user.summary.UserSummary;
 import com.example.demo.presentation.view.fundamentals.fragment.dialog.form.FormDialog;
 import com.example.demo.presentation.view.useradmin.dialog.edit.presenter.IUserEditDialog;
 import com.example.demo.presentation.view.useradmin.dialog.edit.presenter.IUserEditPresenter;
@@ -36,9 +35,9 @@ public class UserEditDialog extends FormDialog implements View, IUserEditDialog 
 
     @Override
     public void enter(ViewChangeEvent event) {
+        // initialize from data of transition source view
         IUserAdminView sourceView = (IUserAdminView) event.getOldView();
-        UserSummary targetSummary = sourceView.gridSelection();
-        this.form = new UserEditForm(targetSummary);
+        this.form = new UserEditForm(sourceView.gridSelection());
         setForm(form);
 
         addClickEvenListenerToSaveButton(e -> presenter.onClickSaveButton(form.valueAsUser()));

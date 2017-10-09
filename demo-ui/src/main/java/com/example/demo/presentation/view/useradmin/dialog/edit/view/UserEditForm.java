@@ -33,7 +33,7 @@ class UserEditForm extends FormLayout {
     }
 
     boolean hasChanges() {
-        return userName.hasChanges() || emailAddress.binder.hasChanges();
+        return userName.hasChanges() || emailAddress.hasChanges();
     }
 
     String errorMessagesAsHtml() {

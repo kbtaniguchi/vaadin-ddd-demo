@@ -28,21 +28,23 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
 
     @Autowired
     public UserAdminView(IUserAdminPresenter presenter) {
+        // 1st construction
         super();
         this.presenter = presenter;
         setCaption(CAPTION);
-
         addHeaderAndBody(viewHeader, viewBody);
     }
 
     @PostConstruct
     void init() {
+        // 2nd construction
         presenter.attachView(this);
         presenter.loadUserSummaries();
     }
 
     @Override
     public void enter(ViewChangeEvent event) {
+        // 3rd construction
         viewBody.controlArea.addClickEventListenerToAddButton(e -> presenter.onClickAddButton());
         viewBody.controlArea.addClickEventListenerToEditButton(e -> presenter.onClickEditButton());
         viewBody.controlArea.addClickEventListenerToDeleteButton(e -> presenter.onClickDeleteButton());
