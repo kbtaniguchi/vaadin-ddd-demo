@@ -41,8 +41,8 @@ class UserRegisterForm extends FormLayout {
 
     User valueAsUser() {
         return new User(
-                userId.binder.getBean(),
-                userName.binder.getBean(),
-                emailAddress.binder.getBean());
+                userId.valueAsUserId(),
+                userName.valueAsUserName(),
+                emailAddress.valueAsEmailAddress());
     }
 }

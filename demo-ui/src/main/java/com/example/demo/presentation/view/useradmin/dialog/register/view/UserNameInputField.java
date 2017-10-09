@@ -12,4 +12,8 @@ class UserNameInputField extends TextField {
         setSizeFull();
         binder.bind(this, UserName.propertyName());
     }
+
+    UserName valueAsUserName() {
+        return new UserName(getValue());
+    }
 }

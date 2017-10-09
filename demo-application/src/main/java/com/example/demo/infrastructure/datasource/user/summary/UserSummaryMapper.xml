@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.infrastructure.datasource.user.summary.UserSummaryMapper">
+
+    <resultMap id="UserSummary" type="com.example.demo.domain.model.user.summary.UserSummary">
+        <result property="profile.userId.value" column="user_id"/>
+        <result property="profile.name.value" column="user_name"/>
+        <result property="profile.emailAddress.value" column="emai_address"/>
+        <result property="audit.createdAt.value" column="created_at"/>
+        <result property="audit.updatedAt.value" column="updated_at"/>
+    </resultMap>
+
+    <select id="findLatestAll" resultMap="UserSummary">
+        SELECT
+            user_admin.users.user_id,
+            user_admin.profiles.user_name,
+            user_admin.profiles.emai_address,
+            user_admin.users.created_at,
+            user_admin.last_transactions.created_at AS updated_at
+        FROM user_admin.last_transactions
+            LEFT JOIN user_admin.transactions
+                ON user_admin.last_transactions.transaction_id = user_admin.transactions.transaction_id
+            LEFT JOIN user_admin.profiles
+                ON user_admin.transactions.transaction_id = user_admin.profiles.transaction_id
+            LEFT JOIN user_admin.users
+                ON user_admin.transactions.user_id = user_admin.users.user_id
+            LEFT JOIN user_admin.deleted_users
+                ON user_admin.users.user_id = user_admin.deleted_users.user_id
+        WHERE user_admin.deleted_users.user_id IS NULL
+        ORDER BY user_admin.last_transactions.created_at DESC
+    </select>
+</mapper>

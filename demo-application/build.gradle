@@ -1,7 +1,19 @@
 apply plugin: 'org.springframework.boot'
 
+sourceSets {
+    main {
+        // for mybatis's xml mapper file
+        resources.srcDirs = ["src/main/java", "src/main/resources"]
+    }
+}
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    // version refs. http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.1")
     compileOnly('org.projectlombok:lombok:1.16.18')
+
+    runtime('org.postgresql:postgresql')
+
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }

@@ -12,4 +12,8 @@ class EmailAddressInputField extends TextField {
         setSizeFull();
         binder.bind(this, EmailAddress.propertyName());
     }
+
+    EmailAddress valueAsEmailAddress() {
+        return new EmailAddress(getValue());
+    }
 }

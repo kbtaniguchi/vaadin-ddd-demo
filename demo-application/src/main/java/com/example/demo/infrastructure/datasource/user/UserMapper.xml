@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.infrastructure.datasource.user.UserMapper">
+
+    <insert id="storeNewUser">
+        INSERT INTO user_admin.users (user_id) VALUES (#{user.id.value})
+    </insert>
+
+    <insert id="storeTransaction">
+        INSERT INTO user_admin.transactions (transaction_id, user_id)
+        VALUES (#{transactionId}, #{user.id.value})
+    </insert>
+
+    <insert id="storeProfile">
+        INSERT INTO user_admin.profiles (transaction_id, user_name, emai_address)
+        VALUES (#{transactionId}, #{user.name.value}, #{user.emailAddress.value})
+    </insert>
+
+    <insert id="storeLastTransaction">
+        INSERT INTO user_admin.last_transactions (user_id, transaction_id)
+        VALUES (#{user.id.value}, #{transactionId})
+    </insert>
+
+    <insert id="storeDeleteUserId">
+        INSERT INTO user_admin.deleted_users (user_id) VALUES (#{userId.value})
+    </insert>
+</mapper>

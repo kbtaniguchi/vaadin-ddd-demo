@@ -12,4 +12,8 @@ class UserIdInputField extends TextField {
         setSizeFull();
         binder.bind(this, UserId.propertyName());
     }
+
+    UserId valueAsUserId() {
+        return new UserId(getValue());
+    }
 }
