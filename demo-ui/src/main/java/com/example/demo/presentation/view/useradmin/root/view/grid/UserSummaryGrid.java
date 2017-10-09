@@ -10,6 +10,7 @@ public class UserSummaryGrid extends Grid<UserSummary> {
         setSizeFull();
         setSelectionMode(SelectionMode.MULTI);
 
+        addColumn(UserSummary::statusAsText).setCaption("status");
         addColumn(userSummary -> userSummary.profile().userId().asText()).setCaption("id");
         addColumn(userSummary -> userSummary.profile().userName().asText()).setCaption("name");
         addColumn(userSummary -> userSummary.profile().emailAddress().asText()).setCaption("email");

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 public class UserSummary {
     UserProfile profile;
     Audit audit;
+    UserStatus status;
 
     public UserProfile profile() {
         return profile;
@@ -14,5 +15,14 @@ public class UserSummary {
 
     public Audit audit() {
         return audit;
+    }
+
+    public String statusAsText() {
+        if (status == UserStatus.DELETED) return "Deleted";
+        return "Active";
+    }
+
+    public boolean isDeleted() {
+        return status == UserStatus.DELETED;
     }
 }

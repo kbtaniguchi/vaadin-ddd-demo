@@ -29,6 +29,13 @@ public class UserSummaries {
         return values.size() > 1;
     }
 
+    public boolean hasDeletedSummary() {
+        long deletedSummaryCount = values.stream()
+                .filter(UserSummary::isDeleted)
+                .count();
+        return deletedSummaryCount != 0;
+    }
+
     public void forEach(Consumer<UserSummary> consumer) {
         values.forEach(consumer);
     }

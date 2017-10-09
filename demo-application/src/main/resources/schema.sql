@@ -36,6 +36,8 @@ CREATE TABLE user_admin.profiles (
 );
 
 CREATE TABLE user_admin.deleted_users (
-  user_id VARCHAR(30) NOT NULL,
+  user_id    VARCHAR(30) NOT NULL,
+  created_at TIMESTAMP   NOT NULL DEFAULT now(),
+  CONSTRAINT uk_deleted_users UNIQUE (user_id),
   CONSTRAINT fk_deleted_users_to_users FOREIGN KEY (user_id) REFERENCES user_admin.users (user_id)
 );

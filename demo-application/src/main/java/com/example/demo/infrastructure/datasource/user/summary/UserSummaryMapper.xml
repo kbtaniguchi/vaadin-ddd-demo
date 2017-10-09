@@ -9,6 +9,7 @@
         <result property="profile.emailAddress.value" column="emai_address"/>
         <result property="audit.createdAt.value" column="created_at"/>
         <result property="audit.updatedAt.value" column="updated_at"/>
+        <result property="status" column="status"/>
     </resultMap>
 
     <select id="findLatestAll" resultMap="UserSummary">
@@ -17,7 +18,16 @@
             user_admin.profiles.user_name,
             user_admin.profiles.emai_address,
             user_admin.users.created_at,
-            user_admin.last_transactions.created_at AS updated_at
+            CASE
+            WHEN user_admin.deleted_users.user_id IS NOT NULL
+                THEN user_admin.deleted_users.created_at
+            ELSE user_admin.last_transactions.created_at
+            END AS updated_at,
+            CASE
+            WHEN user_admin.deleted_users.user_id IS NOT NULL
+                THEN 'DELETED'
+            ELSE 'ACTIVE'
+            END AS status
         FROM user_admin.last_transactions
             LEFT JOIN user_admin.transactions
                 ON user_admin.last_transactions.transaction_id = user_admin.transactions.transaction_id
@@ -27,7 +37,6 @@
                 ON user_admin.transactions.user_id = user_admin.users.user_id
             LEFT JOIN user_admin.deleted_users
                 ON user_admin.users.user_id = user_admin.deleted_users.user_id
-        WHERE user_admin.deleted_users.user_id IS NULL
         ORDER BY user_admin.last_transactions.created_at DESC
     </select>
 </mapper>

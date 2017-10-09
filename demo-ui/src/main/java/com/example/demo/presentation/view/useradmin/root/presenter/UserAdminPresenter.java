@@ -43,5 +43,6 @@ public class UserAdminPresenter implements IUserAdminPresenter {
         if (selections.isEmpty()) view.toStateOfOnlyCanAdd();
         if (selections.isSingle()) view.toStateOfCanAll();
         if (selections.isMultiple()) view.toStateOfCanAddAndDelete();
+        if (selections.hasDeletedSummary()) view.toStateOfOnlyCanAdd();
     }
 }
