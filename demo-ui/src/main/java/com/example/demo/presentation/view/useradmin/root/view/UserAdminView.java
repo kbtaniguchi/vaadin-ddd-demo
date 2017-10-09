@@ -53,7 +53,7 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
     }
 
     @Override
-    public void reflectToGridFrom(UserSummaries userSummaries) {
+    public void bindingGridData(UserSummaries userSummaries) {
         viewBody.userSummaryGrid.binding(userSummaries);
     }
 

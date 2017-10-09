@@ -25,7 +25,7 @@ public class UserAdminPresenter implements IUserAdminPresenter {
 
     @Override
     public void loadUserSummaries() {
-        view.reflectToGridFrom(userSummaryService.allUserSummaries());
+        view.bindingGridData(userSummaryService.allUserSummaries());
     }
 
     @Override

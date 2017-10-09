@@ -5,7 +5,7 @@ import com.example.demo.domain.model.user.summary.UserSummary;
 
 public interface IUserAdminView {
 
-    void reflectToGridFrom(UserSummaries userSummaries);
+    void bindingGridData(UserSummaries userSummaries);
 
     void doFilterBySearchText();
 

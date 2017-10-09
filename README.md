@@ -33,9 +33,8 @@ This application has multi projects.
 * Build tool: Gradle https://gradle.org/
 * IDE: IntelliJ IDEA https://www.jetbrains.com/idea/
 
-* plan to use
-  * SQL mapper: MyBatis http://blog.mybatis.org/
-  * Database: PostgreSQL https://www.postgresql.org/
+* SQL mapper: MyBatis http://blog.mybatis.org/
+* Database: PostgreSQL https://www.postgresql.org/
 
 ## Usage
 
