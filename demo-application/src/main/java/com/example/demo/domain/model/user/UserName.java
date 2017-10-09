@@ -21,6 +21,10 @@ public class UserName {
         return value;
     }
 
+    public boolean same(UserName other) {
+        return other.value.equals(this.value);
+    }
+
     public static String caption() {
         return "User Name";
     }

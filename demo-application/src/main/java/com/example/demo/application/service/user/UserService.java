@@ -8,14 +8,27 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    @Autowired
-    UserRepository userRepository;
+
+    public boolean alreadyUsed(UserId userId) {
+        return userRepository.exists(userId);
+    }
 
     public void register(User user) {
         userRepository.register(user);
     }
 
+    public void revise(User user) {
+        userRepository.revise(user);
+    }
+
     public void delete(UserId userId) {
         userRepository.delete(userId);
+    }
+
+    UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 }

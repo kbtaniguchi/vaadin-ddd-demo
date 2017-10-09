@@ -34,6 +34,11 @@ public class UserAdminPresenter implements IUserAdminPresenter {
     }
 
     @Override
+    public void onClickEditButton() {
+        view.launchUserEditDialog();
+    }
+
+    @Override
     public void onClickDeleteButton() {
         view.launchDeleteConfirmDialog();
     }

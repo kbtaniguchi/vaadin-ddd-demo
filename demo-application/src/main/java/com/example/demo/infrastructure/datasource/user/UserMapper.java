@@ -23,5 +23,7 @@ public interface UserMapper {
 
     void storeLastTransaction(@Param("user") User user, @Param("transactionId") long transactionId);
 
+    void deleteLastTransaction(@Param("user") User user);
+
     void storeDeleteUserId(@Param("userId") UserId userId);
 }

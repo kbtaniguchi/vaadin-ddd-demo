@@ -6,5 +6,8 @@ public interface UserRepository {
 
     void register(User user);
 
+    void revise(User user);
+
     void delete(UserId userId);
+
 }

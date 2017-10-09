@@ -20,6 +20,12 @@ public class UserDataSource implements UserRepository {
         storeTransaction(user);
     }
 
+    @Override
+    public void revise(User user) {
+        mapper.deleteLastTransaction(user);
+        storeTransaction(user);
+    }
+
     private void storeTransaction(User user) {
         long transactionId = mapper.nextTransactionId();
         mapper.storeTransaction(user, transactionId);

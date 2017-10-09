@@ -22,6 +22,11 @@
         VALUES (#{user.id.value}, #{transactionId})
     </insert>
 
+    <insert id="deleteLastTransaction">
+        DELETE FROM user_admin.last_transactions
+        WHERE user_admin.last_transactions.user_id = #{user.id.value}
+    </insert>
+
     <insert id="storeDeleteUserId">
         INSERT INTO user_admin.deleted_users (user_id) VALUES (#{userId.value})
     </insert>

@@ -22,6 +22,11 @@ public class UserSummaryGrid extends Grid<UserSummary> {
         setItems(userSummaries.asList());
     }
 
+    public UserSummary selection() {
+        return getSelectedItems().stream()
+                .findFirst().orElseThrow(IllegalStateException::new);
+    }
+
     public UserSummaries allSelections() {
         return new UserSummaries(getSelectedItems());
     }

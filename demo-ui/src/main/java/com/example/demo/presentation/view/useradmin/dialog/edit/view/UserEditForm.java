@@ -1,21 +1,25 @@
-package com.example.demo.presentation.view.useradmin.dialog.register.view;
+package com.example.demo.presentation.view.useradmin.dialog.edit.view;
 
 import com.example.demo.domain.model.user.User;
+import com.example.demo.domain.model.user.summary.UserSummary;
 import com.vaadin.server.CompositeErrorMessage;
 import com.vaadin.ui.FormLayout;
 
-class UserRegisterForm extends FormLayout {
-    final UserIdInputField userId = new UserIdInputField();
-    final UserNameInputField userName = new UserNameInputField();
-    final EmailAddressInputField emailAddress = new EmailAddressInputField();
+class UserEditForm extends FormLayout {
+    UserIdReadOnlyField userId;
+    UserNameEditField userName;
+    EmailAddressEditField emailAddress;
 
-    UserRegisterForm() {
+    UserEditForm(UserSummary targetSummary) {
+        this.userId = new UserIdReadOnlyField(targetSummary.profile().userId());
+        this.userName = new UserNameEditField(targetSummary.profile().userName());
+        this.emailAddress = new EmailAddressEditField(targetSummary.profile().emailAddress());
+
         addComponents(userId, userName, emailAddress);
         setMargin(false);
     }
 
     void validate() {
-        userId.binder.validate();
         userName.binder.validate();
         emailAddress.binder.validate();
     }
@@ -25,13 +29,16 @@ class UserRegisterForm extends FormLayout {
     }
 
     private boolean allFieldsAreValid() {
-        return userId.binder.isValid() && userName.binder.isValid() && emailAddress.binder.isValid();
+        return userName.binder.isValid() && emailAddress.binder.isValid();
+    }
+
+    boolean hasChanges() {
+        return userName.hasChanges() || emailAddress.binder.hasChanges();
     }
 
     String errorMessagesAsHtml() {
         // note: getErrorMessage() always return null before binder.validate()
         CompositeErrorMessage compositeErrorMessage = new CompositeErrorMessage(
-                userId.getErrorMessage(),
                 userName.getErrorMessage(),
                 emailAddress.getErrorMessage());
         return String.format("%s<br/>%s",

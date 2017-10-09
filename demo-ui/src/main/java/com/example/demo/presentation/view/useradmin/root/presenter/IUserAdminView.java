@@ -1,6 +1,7 @@
 package com.example.demo.presentation.view.useradmin.root.presenter;
 
 import com.example.demo.domain.model.user.summary.UserSummaries;
+import com.example.demo.domain.model.user.summary.UserSummary;
 
 public interface IUserAdminView {
 
@@ -14,7 +15,11 @@ public interface IUserAdminView {
 
     void launchUserRegisterDialog();
 
+    void launchUserEditDialog();
+
     void launchDeleteConfirmDialog();
 
     UserSummaries allGridSelections();
+
+    UserSummary gridSelection();
 }

@@ -15,6 +15,10 @@ public class ControlArea extends HorizontalLayout {
         addEditDeleteButtons.addButton.addClickListener(clickListener);
     }
 
+    public void addClickEventListenerToEditButton(ClickListener clickListener) {
+        addEditDeleteButtons.editButton.addClickListener(clickListener);
+    }
+
     public void addClickEventListenerToDeleteButton(ClickListener clickListener) {
         addEditDeleteButtons.deleteButton.addClickListener(clickListener);
     }

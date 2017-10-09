@@ -1,9 +1,11 @@
 package com.example.demo.presentation.view.useradmin.root.view;
 
 import com.example.demo.domain.model.user.summary.UserSummaries;
+import com.example.demo.domain.model.user.summary.UserSummary;
 import com.example.demo.presentation.view.fundamentals.fragment.header.ViewHeader;
 import com.example.demo.presentation.view.fundamentals.layout.BaseViewLayout;
 import com.example.demo.presentation.view.useradmin.dialog.delete.view.DeleteConfirmDialog;
+import com.example.demo.presentation.view.useradmin.dialog.edit.view.UserEditDialog;
 import com.example.demo.presentation.view.useradmin.dialog.register.view.UserRegisterDialog;
 import com.example.demo.presentation.view.useradmin.root.presenter.IUserAdminPresenter;
 import com.example.demo.presentation.view.useradmin.root.presenter.IUserAdminView;
@@ -42,6 +44,7 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
     @Override
     public void enter(ViewChangeEvent event) {
         viewBody.controlArea.addClickEventListenerToAddButton(e -> presenter.onClickAddButton());
+        viewBody.controlArea.addClickEventListenerToEditButton(e -> presenter.onClickEditButton());
         viewBody.controlArea.addClickEventListenerToDeleteButton(e -> presenter.onClickDeleteButton());
         viewBody.userSummaryGrid.addSelectionListener(e -> presenter.onSelectGrid(viewBody.userSummaryGrid.allSelections()));
     }
@@ -72,8 +75,18 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
     }
 
     @Override
+    public UserSummary gridSelection() {
+        return viewBody.userSummaryGrid.selection();
+    }
+
+    @Override
     public void launchUserRegisterDialog() {
         getUI().getNavigator().navigateTo(UserRegisterDialog.VIEW_NAME);
+    }
+
+    @Override
+    public void launchUserEditDialog() {
+        getUI().getNavigator().navigateTo(UserEditDialog.VIEW_NAME);
     }
 
     @Override

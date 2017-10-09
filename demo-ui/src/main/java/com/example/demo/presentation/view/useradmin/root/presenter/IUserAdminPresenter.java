@@ -10,6 +10,8 @@ public interface IUserAdminPresenter {
 
     void onClickAddButton();
 
+    void onClickEditButton();
+
     void onClickDeleteButton();
 
     void onSelectGrid(UserSummaries selections);

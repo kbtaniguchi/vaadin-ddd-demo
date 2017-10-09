@@ -20,6 +20,10 @@ public class EmailAddress {
         return value;
     }
 
+    public boolean same(EmailAddress other) {
+        return other.value.equals(this.value);
+    }
+
     public static String caption() {
         return "Email Address";
     }
