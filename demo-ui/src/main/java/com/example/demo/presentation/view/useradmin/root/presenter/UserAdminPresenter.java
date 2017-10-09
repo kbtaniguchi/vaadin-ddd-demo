@@ -44,7 +44,8 @@ public class UserAdminPresenter implements IUserAdminPresenter {
     }
 
     @Override
-    public void onSelectGrid(UserSummaries selections) {
+    public void onSelectGrid() {
+        UserSummaries selections = view.allGridSelections();
         if (selections.isEmpty()) view.toStateOfOnlyCanAdd();
         if (selections.isSingle()) view.toStateOfCanAll();
         if (selections.isMultiple()) view.toStateOfCanAddAndDelete();

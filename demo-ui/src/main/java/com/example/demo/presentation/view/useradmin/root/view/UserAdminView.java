@@ -48,7 +48,7 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
         viewBody.controlArea.addClickEventListenerToAddButton(e -> presenter.onClickAddButton());
         viewBody.controlArea.addClickEventListenerToEditButton(e -> presenter.onClickEditButton());
         viewBody.controlArea.addClickEventListenerToDeleteButton(e -> presenter.onClickDeleteButton());
-        viewBody.userSummaryGrid.addSelectionListener(e -> presenter.onSelectGrid(viewBody.userSummaryGrid.allSelections()));
+        viewBody.userSummaryGrid.addSelectionListener(e -> presenter.onSelectGrid());
     }
 
     @Override

@@ -1,7 +1,5 @@
 package com.example.demo.presentation.view.useradmin.root.presenter;
 
-import com.example.demo.domain.model.user.summary.UserSummaries;
-
 public interface IUserAdminPresenter {
 
     void attachView(IUserAdminView view);
@@ -14,6 +12,6 @@ public interface IUserAdminPresenter {
 
     void onClickDeleteButton();
 
-    void onSelectGrid(UserSummaries selections);
+    void onSelectGrid();
 
 }
