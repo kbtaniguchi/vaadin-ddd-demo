@@ -33,6 +33,7 @@ class UserEditForm extends FormLayout {
     }
 
     boolean hasChanges() {
+        // note: binder.setBean() and binder.hasChange() are not work I expected
         return userName.hasChanges() || emailAddress.hasChanges();
     }
 
