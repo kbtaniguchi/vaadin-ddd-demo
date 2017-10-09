@@ -22,4 +22,11 @@ public class UserProfile {
     public EmailAddress emailAddress() {
         return emailAddress;
     }
+
+    public boolean containsWithIgnoreCase(String text) {
+        if (userId.containsWithIgnoreCase(text)) return true;
+        if (name.containsWithIgnoreCase(text)) return true;
+        if (emailAddress.containsWithIgnoreCase(text)) return true;
+        return false;
+    }
 }

@@ -25,6 +25,10 @@ public class UserId {
         return value;
     }
 
+    public boolean containsWithIgnoreCase(String text) {
+        return value.toLowerCase().contains(text.toLowerCase());
+    }
+
     // TODO consider domain model having caption & property name of view's using
     public static String caption() {
         return "User Id";

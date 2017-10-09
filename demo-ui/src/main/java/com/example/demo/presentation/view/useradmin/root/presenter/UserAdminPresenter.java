@@ -29,6 +29,11 @@ public class UserAdminPresenter implements IUserAdminPresenter {
     }
 
     @Override
+    public void onClickSearchButton() {
+        view.doFilterBySearchText();
+    }
+
+    @Override
     public void onClickAddButton() {
         view.launchUserRegisterDialog();
     }

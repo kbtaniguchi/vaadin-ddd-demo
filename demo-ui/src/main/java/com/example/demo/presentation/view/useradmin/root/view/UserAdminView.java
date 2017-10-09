@@ -45,6 +45,7 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
     @Override
     public void enter(ViewChangeEvent event) {
         // 3rd construction
+        viewBody.controlArea.addClickEventListenerToSearchButton(e -> presenter.onClickSearchButton());
         viewBody.controlArea.addClickEventListenerToAddButton(e -> presenter.onClickAddButton());
         viewBody.controlArea.addClickEventListenerToEditButton(e -> presenter.onClickEditButton());
         viewBody.controlArea.addClickEventListenerToDeleteButton(e -> presenter.onClickDeleteButton());
@@ -53,7 +54,12 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
 
     @Override
     public void reflectToGridFrom(UserSummaries userSummaries) {
-        viewBody.userSummaryGrid.reflectFrom(userSummaries);
+        viewBody.userSummaryGrid.binding(userSummaries);
+    }
+
+    @Override
+    public void doFilterBySearchText() {
+        viewBody.userSummaryGrid.filterBy(viewBody.controlArea.searchText());
     }
 
     @Override

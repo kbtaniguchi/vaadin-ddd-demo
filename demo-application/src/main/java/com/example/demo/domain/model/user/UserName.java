@@ -25,6 +25,10 @@ public class UserName {
         return other.value.equals(this.value);
     }
 
+    public boolean containsWithIgnoreCase(String text) {
+        return value.toLowerCase().contains(text.toLowerCase());
+    }
+
     public static String caption() {
         return "User Name";
     }

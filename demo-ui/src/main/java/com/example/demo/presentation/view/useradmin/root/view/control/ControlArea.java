@@ -3,12 +3,22 @@ package com.example.demo.presentation.view.useradmin.root.view.control;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.HorizontalLayout;
 
+import java.util.Optional;
+
 public class ControlArea extends HorizontalLayout {
     final SearchField searchField = new SearchField();
     final AddEditDeleteButtons addEditDeleteButtons = new AddEditDeleteButtons();
 
     public ControlArea() {
         addComponents(searchField, addEditDeleteButtons);
+    }
+
+    public String searchText() {
+        return searchField.searchText.getValue();
+    }
+
+    public void addClickEventListenerToSearchButton(ClickListener clickListener) {
+        searchField.searchButton.addClickListener(clickListener);
     }
 
     public void addClickEventListenerToAddButton(ClickListener clickListener) {
@@ -40,4 +50,5 @@ public class ControlArea extends HorizontalLayout {
         addEditDeleteButtons.editButton.setEnabled(false);
         addEditDeleteButtons.deleteButton.setEnabled(true);
     }
+
 }

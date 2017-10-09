@@ -6,6 +6,8 @@ public interface IUserAdminPresenter {
 
     void loadUserSummaries();
 
+    void onClickSearchButton();
+
     void onClickAddButton();
 
     void onClickEditButton();

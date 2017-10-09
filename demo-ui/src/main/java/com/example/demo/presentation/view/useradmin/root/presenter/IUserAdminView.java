@@ -7,6 +7,8 @@ public interface IUserAdminView {
 
     void reflectToGridFrom(UserSummaries userSummaries);
 
+    void doFilterBySearchText();
+
     void toStateOfOnlyCanAdd();
 
     void toStateOfCanAll();
