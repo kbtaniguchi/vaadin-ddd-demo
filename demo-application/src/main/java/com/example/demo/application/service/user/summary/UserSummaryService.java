@@ -7,10 +7,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserSummaryService {
-    @Autowired
-    UserSummaryRepository userSummaryRepository;
 
     public UserSummaries allUserSummaries() {
         return userSummaryRepository.findAll();
+    }
+
+    UserSummaryRepository userSummaryRepository;
+
+    @Autowired
+    public UserSummaryService(UserSummaryRepository userSummaryRepository) {
+        this.userSummaryRepository = userSummaryRepository;
     }
 }
