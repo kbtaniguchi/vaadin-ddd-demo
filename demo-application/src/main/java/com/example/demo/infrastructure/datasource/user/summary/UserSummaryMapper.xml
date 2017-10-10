@@ -9,6 +9,7 @@
         <result property="profile.emailAddress.value" column="emai_address"/>
         <result property="audit.createdAt.value" column="created_at"/>
         <result property="audit.updatedAt.value" column="updated_at"/>
+        <result property="audit.version.value" column="version"/>
         <result property="status" column="status"/>
     </resultMap>
 
@@ -23,6 +24,7 @@
                 THEN user_admin.deleted_users.created_at
             ELSE user_admin.last_transactions.created_at
             END AS updated_at,
+            user_admin.last_transactions.version,
             CASE
             WHEN user_admin.deleted_users.user_id IS NOT NULL
                 THEN 'DELETED'
