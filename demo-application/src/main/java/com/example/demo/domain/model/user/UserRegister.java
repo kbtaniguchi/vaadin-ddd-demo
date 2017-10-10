@@ -8,4 +8,8 @@ public class UserRegister {
     public UserRegister(UserProfile profile) {
         this.profile = profile;
     }
+
+    public UserProfile profile() {
+        return profile;
+    }
 }

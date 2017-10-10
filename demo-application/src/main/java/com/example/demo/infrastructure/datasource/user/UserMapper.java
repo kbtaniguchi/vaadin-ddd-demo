@@ -1,7 +1,8 @@
 package com.example.demo.infrastructure.datasource.user;
 
-import com.example.demo.domain.model.user.UserRegister;
+import com.example.demo.domain.model.fudamentals.audit.Version;
 import com.example.demo.domain.model.user.profile.UserId;
+import com.example.demo.domain.model.user.profile.UserProfile;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -15,15 +16,21 @@ public interface UserMapper {
     @Select("SELECT nextval('user_admin.seq_transaction_id')")
     long nextTransactionId();
 
-    void storeNewUser(@Param("userRegister") UserRegister userRegister);
+    Version nextVersion(@Param("userId") UserId userId);
 
-    void storeTransaction(@Param("userRegister") UserRegister userRegister, @Param("transactionId") long transactionId);
+    void storeNewUser(@Param("userId") UserId userId);
 
-    void storeProfile(@Param("userRegister") UserRegister userRegister, @Param("transactionId") long transactionId);
+    void storeTransaction(@Param("userId") UserId userId,
+                          @Param("transactionId") long transactionId);
 
-    void storeLastTransaction(@Param("userRegister") UserRegister userRegister, @Param("transactionId") long transactionId);
+    void storeProfile(@Param("userProfile") UserProfile userProfile,
+                      @Param("transactionId") long transactionId);
 
-    void deleteLastTransaction(@Param("userRegister") UserRegister userRegister);
+    void storeLastTransaction(@Param("userId") UserId userId,
+                              @Param("transactionId") long transactionId,
+                              @Param("version") Version version);
+
+    void deleteLastTransaction(@Param("userId") UserId userId);
 
     void storeDeleteUserId(@Param("userId") UserId userId);
 }
