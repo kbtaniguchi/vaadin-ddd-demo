@@ -33,14 +33,14 @@ This application has multi projects.
 
 ### libraries and tools
 
-* Lombok https://projectlombok.org/
-  * do away with boilerplate code from domain model
-  * using for 2 purposes
-    * define ValueObject's getter/setter and no args constructor which Vaadin's com.vaadin.data.Binder#bind() require
-    * define Aggregation's no args constructor which MyBatis's ResultMap require
-
 * Build tool: Gradle https://gradle.org/
 * IDE: IntelliJ IDEA https://www.jetbrains.com/idea/
+* Libraries: Lombok https://projectlombok.org/
+  * do away with boilerplate code from domain model
+  * using for 2 purposes:
+    * define ValueObject's getter/setter and no args constructor which Vaadin's com.vaadin.data.Binder#bind() require
+    * define Aggregation's no args constructor which MyBatis's ResultMap require
+  * so our implementations don't depend on methods created by Lombok.
 
 ## Usage
 
