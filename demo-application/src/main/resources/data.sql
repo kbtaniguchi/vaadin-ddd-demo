@@ -13,11 +13,11 @@ VALUES
 
 SELECT SETVAL('user_admin.seq_transaction_id', 4);
 
-INSERT INTO user_admin.last_transactions (user_id, transaction_id)
+INSERT INTO user_admin.last_transactions (user_id, transaction_id, version)
 VALUES
-  ('newuser', 1),
-  ('deleteduser', 2),
-  ('updateduser', 4);
+  ('newuser', 1, 1),
+  ('deleteduser', 2, 1),
+  ('updateduser', 4, 2);
 
 INSERT INTO user_admin.profiles (transaction_id, user_name, emai_address)
 VALUES

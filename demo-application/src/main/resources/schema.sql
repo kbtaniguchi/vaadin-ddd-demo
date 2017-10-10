@@ -20,6 +20,7 @@ CREATE TABLE user_admin.transactions (
 CREATE TABLE user_admin.last_transactions (
   user_id        VARCHAR(30) NOT NULL,
   transaction_id BIGINT      NOT NULL,
+  version        INT         NOT NULL,
   created_at     TIMESTAMP   NOT NULL DEFAULT now(),
   CONSTRAINT uk_last_transactions UNIQUE (user_id),
   CONSTRAINT fk_last_transactions_to_users FOREIGN KEY (user_id) REFERENCES user_admin.users (user_id),
