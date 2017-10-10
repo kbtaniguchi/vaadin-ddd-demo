@@ -17,13 +17,9 @@ This application has multi projects.
 
 #### demo-ui project
 
-![mvp-concept](./mvp-concept.png)
-
 * presentation layer: depending on domain & application layer
-* oriented MVP architecture
-  * Model: not depending on Vaadin, depending on domain layer
-  * Presenter: not depending on Vaadin, depending on domain & application layer
-  * View: depending on Vaadin and domain layer
+  * oriented MVP architecture
+![mvp-concept](./mvp-concept.png)
 
 ### frameworks
 
@@ -39,7 +35,9 @@ This application has multi projects.
 
 * Lombok https://projectlombok.org/
   * do away with boilerplate code from domain model
-  * for resolution accessor and constructor which ui binder require
+  * using for 2 purposes
+    * define ValueObject's getter/setter and no args constructor which Vaadin's com.vaadin.data.Binder#bind() require
+    * define Aggregation's no args constructor which MyBatis's ResultMap require
 
 * Build tool: Gradle https://gradle.org/
 * IDE: IntelliJ IDEA https://www.jetbrains.com/idea/
