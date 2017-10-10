@@ -40,7 +40,7 @@ public class UserEditDialog extends FormDialog implements View, IUserEditDialog 
         this.form = new UserEditForm(sourceView.gridSelection());
         setForm(form);
 
-        addClickEvenListenerToSaveButton(e -> presenter.onClickSaveButton(form.valueAsUser()));
+        addClickEvenListenerToSaveButton(e -> presenter.onClickSaveButton(form.valueAsUserEditor()));
         addClickEventListenerToCancelButton(e -> presenter.onClickCancelButton());
     }
 

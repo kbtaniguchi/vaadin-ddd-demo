@@ -1,7 +1,7 @@
 package com.example.demo.presentation.view.useradmin.dialog.edit.presenter;
 
 import com.example.demo.application.service.user.UserService;
-import com.example.demo.domain.model.user.User;
+import com.example.demo.domain.model.user.UserEditor;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.spring.annotation.ViewScope;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class UserEditPresenter implements IUserEditPresenter {
     }
 
     @Override
-    public void onClickSaveButton(User user) {
+    public void onClickSaveButton(UserEditor userEditor) {
         if (!view.hasChangesInForm()) {
             view.showNoChangeErrorMessage();
             return;
@@ -35,7 +35,7 @@ public class UserEditPresenter implements IUserEditPresenter {
         }
         view.hideErrorMessages();
 
-        userService.revise(user);
+        userService.revise(userEditor);
         view.returnUserAdminView();
     }
 

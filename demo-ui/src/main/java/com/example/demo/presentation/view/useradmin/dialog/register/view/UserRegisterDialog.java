@@ -35,7 +35,7 @@ public class UserRegisterDialog extends FormDialog implements View, IUserRegiste
 
     @Override
     public void enter(ViewChangeEvent event) {
-        addClickEvenListenerToSaveButton(e -> presenter.onClickSaveButton(form.valueAsUser()));
+        addClickEvenListenerToSaveButton(e -> presenter.onClickSaveButton(form.valueAsUserRegister()));
         addClickEventListenerToCancelButton(e -> presenter.onClickCancelButton());
     }
 

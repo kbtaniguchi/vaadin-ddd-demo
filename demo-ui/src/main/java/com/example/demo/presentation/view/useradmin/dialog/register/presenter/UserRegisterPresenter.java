@@ -1,7 +1,7 @@
 package com.example.demo.presentation.view.useradmin.dialog.register.presenter;
 
 import com.example.demo.application.service.user.UserService;
-import com.example.demo.domain.model.user.User;
+import com.example.demo.domain.model.user.UserRegister;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.spring.annotation.ViewScope;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,14 +24,14 @@ public class UserRegisterPresenter implements IUserRegisterPresenter {
     }
 
     @Override
-    public void onClickSaveButton(User user) {
+    public void onClickSaveButton(UserRegister userRegister) {
         if (view.hasValidationErrors()) {
             view.showValidationErrorMessages();
             return;
         }
         view.hideErrorMessages();
 
-        userService.register(user);
+        userService.register(userRegister);
         view.returnUserAdminView();
     }
 

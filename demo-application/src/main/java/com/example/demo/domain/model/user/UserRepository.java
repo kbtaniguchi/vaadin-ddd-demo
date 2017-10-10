@@ -1,12 +1,14 @@
 package com.example.demo.domain.model.user;
 
+import com.example.demo.domain.model.user.profile.UserId;
+
 public interface UserRepository {
 
     boolean exists(UserId userId);
 
-    void register(User user);
+    void register(UserRegister userRegister);
 
-    void revise(User user);
+    void revise(UserEditor userEditor);
 
     void delete(UserId userId);
 

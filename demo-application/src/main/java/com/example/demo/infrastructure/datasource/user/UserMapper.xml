@@ -3,28 +3,44 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.infrastructure.datasource.user.UserMapper">
 
+    <resultMap id="Version" type="com.example.demo.domain.model.fudamentals.audit.Version">
+        <result property="value" column="version"/>
+    </resultMap>
+
+    <select id="latestVersion" resultMap="Version">
+        SELECT user_admin.last_transactions.version AS version
+        FROM user_admin.last_transactions
+        WHERE user_id = #{userId.value}
+    </select>
+
+    <select id="nextVersion" resultMap="Version">
+        SELECT user_admin.last_transactions.version + 1 AS version
+        FROM user_admin.last_transactions
+        WHERE user_id = #{userId.value}
+    </select>
+
     <insert id="storeNewUser">
-        INSERT INTO user_admin.users (user_id) VALUES (#{user.id.value})
+        INSERT INTO user_admin.users (user_id) VALUES (#{userId.value})
     </insert>
 
     <insert id="storeTransaction">
         INSERT INTO user_admin.transactions (transaction_id, user_id)
-        VALUES (#{transactionId}, #{user.id.value})
+        VALUES (#{transactionId}, #{userId.value})
     </insert>
 
     <insert id="storeProfile">
         INSERT INTO user_admin.profiles (transaction_id, user_name, emai_address)
-        VALUES (#{transactionId}, #{user.name.value}, #{user.emailAddress.value})
+        VALUES (#{transactionId}, #{userProfile.name.value}, #{userProfile.emailAddress.value})
     </insert>
 
     <insert id="storeLastTransaction">
-        INSERT INTO user_admin.last_transactions (user_id, transaction_id)
-        VALUES (#{user.id.value}, #{transactionId})
+        INSERT INTO user_admin.last_transactions (user_id, transaction_id, version)
+        VALUES (#{userId.value}, #{transactionId}, #{version.value})
     </insert>
 
     <insert id="deleteLastTransaction">
         DELETE FROM user_admin.last_transactions
-        WHERE user_admin.last_transactions.user_id = #{user.id.value}
+        WHERE user_admin.last_transactions.user_id = #{userId.value}
     </insert>
 
     <insert id="storeDeleteUserId">

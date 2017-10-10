@@ -8,14 +8,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UserSummaryDataSource implements UserSummaryRepository {
 
     public UserSummaries findAll() {
-        List<UserSummary> summaries = mapper.findLatestAll();
-        if (summaries == null) return new UserSummaries(Collections.emptyList());
-        return new UserSummaries(summaries);
+        Optional<List<UserSummary>> summaries = Optional.ofNullable(mapper.findLatestAll());
+        return new UserSummaries(summaries.orElse(Collections.emptyList()));
     }
 
     UserSummaryMapper mapper;

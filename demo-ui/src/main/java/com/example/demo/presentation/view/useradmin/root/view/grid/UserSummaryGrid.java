@@ -14,6 +14,7 @@ public class UserSummaryGrid extends Grid<UserSummary> {
     static ValueProvider<UserSummary, String> emailAddressValueProvider = userSummary -> userSummary.profile().emailAddress().asText();
     static ValueProvider<UserSummary, String> createdAtValueProvider = userSummary -> userSummary.audit().createdAt().asTextDateTime();
     static ValueProvider<UserSummary, String> updatedAtValueProvider = userSummary -> userSummary.audit().updatedAt().asTextDateTime();
+    static ValueProvider<UserSummary, String> versionValueProvider = userSummary -> userSummary.audit().version().asText();
 
     ListDataProvider<UserSummary> dataProvider;
 
@@ -27,6 +28,7 @@ public class UserSummaryGrid extends Grid<UserSummary> {
         addColumn(emailAddressValueProvider).setCaption("email");
         addColumn(createdAtValueProvider).setCaption("created");
         addColumn(updatedAtValueProvider).setCaption("updated");
+        addColumn(versionValueProvider).setCaption("version");
     }
 
     public void binding(UserSummaries userSummaries) {

@@ -1,6 +1,6 @@
 package com.example.demo.presentation.view.useradmin.dialog.edit.view;
 
-import com.example.demo.domain.model.user.UserId;
+import com.example.demo.domain.model.user.profile.UserId;
 import com.vaadin.ui.TextField;
 
 class UserIdReadOnlyField extends TextField {
