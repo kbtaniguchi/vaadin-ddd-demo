@@ -1,6 +1,7 @@
 package com.example.demo.presentation.view.useradmin.dialog.edit.view;
 
-import com.example.demo.domain.model.user.UserRegister;
+import com.example.demo.domain.model.fudamentals.audit.Version;
+import com.example.demo.domain.model.user.UserEditor;
 import com.example.demo.domain.model.user.profile.UserProfile;
 import com.example.demo.domain.model.user.summary.UserSummary;
 import com.vaadin.server.CompositeErrorMessage;
@@ -11,10 +12,14 @@ class UserEditForm extends FormLayout {
     UserNameEditField userName;
     EmailAddressEditField emailAddress;
 
+    Version originalVersion;
+
     UserEditForm(UserSummary targetSummary) {
         this.userId = new UserIdReadOnlyField(targetSummary.profile().userId());
         this.userName = new UserNameEditField(targetSummary.profile().userName());
         this.emailAddress = new EmailAddressEditField(targetSummary.profile().emailAddress());
+
+        this.originalVersion = targetSummary.audit().version();
 
         addComponents(userId, userName, emailAddress);
         setMargin(false);
@@ -48,11 +53,12 @@ class UserEditForm extends FormLayout {
                 compositeErrorMessage.getFormattedHtmlMessage());
     }
 
-    UserRegister valueAsUser() {
-        return new UserRegister(
+    UserEditor valueAsUserEditor() {
+        return new UserEditor(
                 new UserProfile(
                         userId.valueAsUserId(),
                         userName.valueAsUserName(),
-                        emailAddress.valueAsEmailAddress()));
+                        emailAddress.valueAsEmailAddress()),
+                originalVersion);
     }
 }

@@ -16,6 +16,8 @@ public interface UserMapper {
     @Select("SELECT nextval('user_admin.seq_transaction_id')")
     long nextTransactionId();
 
+    Version latestVersion(@Param("userId") UserId userId);
+
     Version nextVersion(@Param("userId") UserId userId);
 
     void storeNewUser(@Param("userId") UserId userId);

@@ -8,7 +8,7 @@ public interface UserRepository {
 
     void register(UserRegister userRegister);
 
-    void revise(UserRegister userRegister);
+    void revise(UserEditor userEditor);
 
     void delete(UserId userId);
 

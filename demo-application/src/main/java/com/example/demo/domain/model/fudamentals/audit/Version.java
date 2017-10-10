@@ -17,4 +17,8 @@ public class Version {
     public static Version first() {
         return new Version(1);
     }
+
+    public boolean same(Version other) {
+        return value.equals(other.value);
+    }
 }

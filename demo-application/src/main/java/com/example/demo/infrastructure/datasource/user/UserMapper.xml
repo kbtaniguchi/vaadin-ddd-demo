@@ -7,6 +7,12 @@
         <result property="value" column="version"/>
     </resultMap>
 
+    <select id="latestVersion" resultMap="Version">
+        SELECT user_admin.last_transactions.version AS version
+        FROM user_admin.last_transactions
+        WHERE user_id = #{userId.value}
+    </select>
+
     <select id="nextVersion" resultMap="Version">
         SELECT user_admin.last_transactions.version + 1 AS version
         FROM user_admin.last_transactions

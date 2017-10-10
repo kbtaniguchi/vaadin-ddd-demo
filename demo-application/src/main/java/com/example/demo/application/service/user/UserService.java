@@ -1,5 +1,6 @@
 package com.example.demo.application.service.user;
 
+import com.example.demo.domain.model.user.UserEditor;
 import com.example.demo.domain.model.user.UserRegister;
 import com.example.demo.domain.model.user.profile.UserId;
 import com.example.demo.domain.model.user.UserRepository;
@@ -17,8 +18,8 @@ public class UserService {
         userRepository.register(userRegister);
     }
 
-    public void revise(UserRegister userRegister) {
-        userRepository.revise(userRegister);
+    public void revise(UserEditor userEditor) {
+        userRepository.revise(userEditor);
     }
 
     public void delete(UserId userId) {
