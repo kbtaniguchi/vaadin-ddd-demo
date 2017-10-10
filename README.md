@@ -40,7 +40,7 @@ This application has multi projects.
   * using for 2 purposes:
     * define ValueObject's getter/setter and no args constructor which Vaadin's com.vaadin.data.Binder#bind() require
     * define Aggregation's no args constructor which MyBatis's ResultMap require
-  * so our implementations don't depend on methods created by Lombok.
+  * so our implementations don't depend on methods created by Lombok. these methods are only used by Framework.
 
 ## Usage
 
