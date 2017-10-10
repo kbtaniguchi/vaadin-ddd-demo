@@ -4,27 +4,27 @@
 <mapper namespace="com.example.demo.infrastructure.datasource.user.UserMapper">
 
     <insert id="storeNewUser">
-        INSERT INTO user_admin.users (user_id) VALUES (#{userRegister.id.value})
+        INSERT INTO user_admin.users (user_id) VALUES (#{userRegister.profile.id.value})
     </insert>
 
     <insert id="storeTransaction">
         INSERT INTO user_admin.transactions (transaction_id, user_id)
-        VALUES (#{transactionId}, #{userRegister.id.value})
+        VALUES (#{transactionId}, #{userRegister.profile.id.value})
     </insert>
 
     <insert id="storeProfile">
         INSERT INTO user_admin.profiles (transaction_id, user_name, emai_address)
-        VALUES (#{transactionId}, #{userRegister.name.value}, #{userRegister.emailAddress.value})
+        VALUES (#{transactionId}, #{userRegister.profile.name.value}, #{userRegister.profile.emailAddress.value})
     </insert>
 
     <insert id="storeLastTransaction">
         INSERT INTO user_admin.last_transactions (user_id, transaction_id)
-        VALUES (#{userRegister.id.value}, #{transactionId})
+        VALUES (#{userRegister.profile.id.value}, #{transactionId})
     </insert>
 
     <insert id="deleteLastTransaction">
         DELETE FROM user_admin.last_transactions
-        WHERE user_admin.last_transactions.user_id = #{userRegister.id.value}
+        WHERE user_admin.last_transactions.user_id = #{userRegister.profile.id.value}
     </insert>
 
     <insert id="storeDeleteUserId">

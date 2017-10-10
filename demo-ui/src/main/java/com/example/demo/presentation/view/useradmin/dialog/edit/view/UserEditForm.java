@@ -1,6 +1,7 @@
 package com.example.demo.presentation.view.useradmin.dialog.edit.view;
 
 import com.example.demo.domain.model.user.UserRegister;
+import com.example.demo.domain.model.user.profile.UserProfile;
 import com.example.demo.domain.model.user.summary.UserSummary;
 import com.vaadin.server.CompositeErrorMessage;
 import com.vaadin.ui.FormLayout;
@@ -49,8 +50,9 @@ class UserEditForm extends FormLayout {
 
     UserRegister valueAsUser() {
         return new UserRegister(
-                userId.valueAsUserId(),
-                userName.valueAsUserName(),
-                emailAddress.valueAsEmailAddress());
+                new UserProfile(
+                        userId.valueAsUserId(),
+                        userName.valueAsUserName(),
+                        emailAddress.valueAsEmailAddress()));
     }
 }

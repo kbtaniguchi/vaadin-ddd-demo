@@ -2,6 +2,7 @@ package com.example.demo.domain.model.user.summary;
 
 import com.example.demo.domain.model.fudamentals.audit.Audit;
 import com.example.demo.domain.model.user.profile.UserProfile;
+import lombok.NoArgsConstructor;
 
 public class UserSummary {
     UserProfile profile;
