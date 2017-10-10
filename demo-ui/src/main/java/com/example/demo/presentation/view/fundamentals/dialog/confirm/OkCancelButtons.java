@@ -1,4 +1,4 @@
-package com.example.demo.presentation.view.fundamentals.fragment.dialog.confirm;
+package com.example.demo.presentation.view.fundamentals.dialog.confirm;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.HorizontalLayout;

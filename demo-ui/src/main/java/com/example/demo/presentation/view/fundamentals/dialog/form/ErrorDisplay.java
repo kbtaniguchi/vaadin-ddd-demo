@@ -1,4 +1,4 @@
-package com.example.demo.presentation.view.fundamentals.fragment.dialog.form;
+package com.example.demo.presentation.view.fundamentals.dialog.form;
 
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Label;

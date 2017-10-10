@@ -1,6 +1,6 @@
 package com.example.demo.presentation.view.useradmin.dialog.edit.view;
 
-import com.example.demo.presentation.view.fundamentals.fragment.dialog.form.FormDialog;
+import com.example.demo.presentation.view.fundamentals.dialog.form.FormDialog;
 import com.example.demo.presentation.view.useradmin.dialog.edit.presenter.IUserEditDialog;
 import com.example.demo.presentation.view.useradmin.dialog.edit.presenter.IUserEditPresenter;
 import com.example.demo.presentation.view.useradmin.root.presenter.IUserAdminView;

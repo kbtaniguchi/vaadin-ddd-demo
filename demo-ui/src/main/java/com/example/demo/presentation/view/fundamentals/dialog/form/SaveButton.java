@@ -1,4 +1,4 @@
-package com.example.demo.presentation.view.fundamentals.fragment.dialog.form;
+package com.example.demo.presentation.view.fundamentals.dialog.form;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.themes.ValoTheme;

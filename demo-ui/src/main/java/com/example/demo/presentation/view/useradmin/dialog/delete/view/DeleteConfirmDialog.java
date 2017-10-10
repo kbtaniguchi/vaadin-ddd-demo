@@ -1,6 +1,6 @@
 package com.example.demo.presentation.view.useradmin.dialog.delete.view;
 
-import com.example.demo.presentation.view.fundamentals.fragment.dialog.confirm.ConfirmDialog;
+import com.example.demo.presentation.view.fundamentals.dialog.confirm.ConfirmDialog;
 import com.example.demo.presentation.view.useradmin.dialog.delete.presenter.IDeleteConfirmDialog;
 import com.example.demo.presentation.view.useradmin.dialog.delete.presenter.IDeleteConfirmPresenter;
 import com.example.demo.presentation.view.useradmin.root.presenter.IUserAdminView;
