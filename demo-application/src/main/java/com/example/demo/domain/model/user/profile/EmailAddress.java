@@ -1,4 +1,4 @@
-package com.example.demo.domain.model.user;
+package com.example.demo.domain.model.user.profile;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

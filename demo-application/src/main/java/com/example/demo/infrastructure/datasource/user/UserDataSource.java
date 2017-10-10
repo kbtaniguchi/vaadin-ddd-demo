@@ -1,7 +1,7 @@
 package com.example.demo.infrastructure.datasource.user;
 
-import com.example.demo.domain.model.user.User;
-import com.example.demo.domain.model.user.UserId;
+import com.example.demo.domain.model.user.UserRegister;
+import com.example.demo.domain.model.user.profile.UserId;
 import com.example.demo.domain.model.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,22 +15,22 @@ public class UserDataSource implements UserRepository {
     }
 
     @Override
-    public void register(User user) {
-        mapper.storeNewUser(user);
-        storeTransaction(user);
+    public void register(UserRegister userRegister) {
+        mapper.storeNewUser(userRegister);
+        storeTransaction(userRegister);
     }
 
     @Override
-    public void revise(User user) {
-        mapper.deleteLastTransaction(user);
-        storeTransaction(user);
+    public void revise(UserRegister userRegister) {
+        mapper.deleteLastTransaction(userRegister);
+        storeTransaction(userRegister);
     }
 
-    private void storeTransaction(User user) {
+    private void storeTransaction(UserRegister userRegister) {
         long transactionId = mapper.nextTransactionId();
-        mapper.storeTransaction(user, transactionId);
-        mapper.storeLastTransaction(user, transactionId);
-        mapper.storeProfile(user, transactionId);
+        mapper.storeTransaction(userRegister, transactionId);
+        mapper.storeLastTransaction(userRegister, transactionId);
+        mapper.storeProfile(userRegister, transactionId);
     }
 
     @Override

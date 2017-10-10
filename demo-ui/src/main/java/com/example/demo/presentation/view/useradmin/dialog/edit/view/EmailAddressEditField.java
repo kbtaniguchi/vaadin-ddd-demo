@@ -1,6 +1,6 @@
 package com.example.demo.presentation.view.useradmin.dialog.edit.view;
 
-import com.example.demo.domain.model.user.EmailAddress;
+import com.example.demo.domain.model.user.profile.EmailAddress;
 import com.vaadin.data.BeanValidationBinder;
 import com.vaadin.ui.TextField;
 

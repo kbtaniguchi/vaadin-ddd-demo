@@ -1,6 +1,6 @@
 package com.example.demo.presentation.view.useradmin.dialog.register.view;
 
-import com.example.demo.domain.model.user.User;
+import com.example.demo.domain.model.user.UserRegister;
 import com.vaadin.server.CompositeErrorMessage;
 import com.vaadin.ui.FormLayout;
 
@@ -39,8 +39,8 @@ class UserRegisterForm extends FormLayout {
                 compositeErrorMessage.getFormattedHtmlMessage());
     }
 
-    User valueAsUser() {
-        return new User(
+    UserRegister valueAsUser() {
+        return new UserRegister(
                 userId.valueAsUserId(),
                 userName.valueAsUserName(),
                 emailAddress.valueAsEmailAddress());
