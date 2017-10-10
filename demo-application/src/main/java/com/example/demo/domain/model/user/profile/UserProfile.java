@@ -27,9 +27,8 @@ public class UserProfile {
     }
 
     public boolean containsWithIgnoreCase(String text) {
-        if (userId.containsWithIgnoreCase(text)) return true;
-        if (name.containsWithIgnoreCase(text)) return true;
-        if (emailAddress.containsWithIgnoreCase(text)) return true;
-        return false;
+        return userId.containsWithIgnoreCase(text) ||
+                name.containsWithIgnoreCase(text) ||
+                emailAddress.containsWithIgnoreCase(text);
     }
 }
