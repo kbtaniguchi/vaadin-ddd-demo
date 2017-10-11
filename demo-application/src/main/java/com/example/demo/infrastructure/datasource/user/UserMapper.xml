@@ -13,12 +13,6 @@
         WHERE user_id = #{userId.value}
     </select>
 
-    <select id="nextVersion" resultMap="Version">
-        SELECT user_admin.last_transactions.version + 1 AS version
-        FROM user_admin.last_transactions
-        WHERE user_id = #{userId.value}
-    </select>
-
     <insert id="storeNewUser">
         INSERT INTO user_admin.users (user_id) VALUES (#{userId.value})
     </insert>
