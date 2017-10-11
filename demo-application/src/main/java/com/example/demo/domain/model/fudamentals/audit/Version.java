@@ -10,15 +10,19 @@ public class Version {
         this.value = value;
     }
 
-    public String asText() {
-        return String.valueOf(value);
-    }
-
     public static Version first() {
         return new Version(1);
     }
 
+    public String asText() {
+        return String.valueOf(value);
+    }
+
     public boolean same(Version other) {
         return value.equals(other.value);
+    }
+
+    public Version next() {
+        return new Version(value + 1);
     }
 }

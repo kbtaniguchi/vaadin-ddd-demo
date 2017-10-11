@@ -18,8 +18,6 @@ public interface UserMapper {
 
     Version latestVersion(@Param("userId") UserId userId);
 
-    Version nextVersion(@Param("userId") UserId userId);
-
     void storeNewUser(@Param("userId") UserId userId);
 
     void storeTransaction(@Param("userId") UserId userId,

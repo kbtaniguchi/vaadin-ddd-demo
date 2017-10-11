@@ -37,15 +37,14 @@ public class UserDataSource implements UserRepository {
         if (userEditor.isStalerThan(latestVersion))
             throw new OptimisticLockingFailureException("Your changes have conflict with other user's.");
 
-        storeTransaction(userEditor.profile());
+        storeTransaction(userEditor.profile(), latestVersion.next());
     }
 
-    private void storeTransaction(UserProfile profile) {
+    private void storeTransaction(UserProfile profile, Version nextVersion) {
         long transactionId = mapper.nextTransactionId();
         mapper.storeTransaction(profile.userId(), transactionId);
         mapper.storeProfile(profile, transactionId);
 
-        Version nextVersion = mapper.nextVersion(profile.userId());
         mapper.deleteLastTransaction(profile.userId());
         mapper.storeLastTransaction(profile.userId(), transactionId, nextVersion);
     }
