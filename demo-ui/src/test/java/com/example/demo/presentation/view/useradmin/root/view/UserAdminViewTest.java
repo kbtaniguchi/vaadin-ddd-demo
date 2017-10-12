@@ -2,7 +2,7 @@ package com.example.demo.presentation.view.useradmin.root.view;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
-import com.example.demo.IntegrationTestApplication;
+import com.example.demo.TestApplication;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static com.codeborne.selenide.Selenide.open;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = IntegrationTestApplication.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = TestApplication.class)
 @ActiveProfiles("test")
 public class UserAdminViewTest {
     @LocalServerPort
@@ -26,9 +26,8 @@ public class UserAdminViewTest {
         System.setProperty("webdriver.chrome.driver", "src/test/driver/chromedriver");
     }
 
-
     @Test
     public void test() {
-        open("http://localhost:" + port);
+        open(String.format("http://localhost:%s", port));
     }
 }
