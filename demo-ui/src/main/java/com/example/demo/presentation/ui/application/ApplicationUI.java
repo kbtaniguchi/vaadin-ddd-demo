@@ -1,7 +1,5 @@
 package com.example.demo.presentation.ui.application;
 
-import com.vaadin.annotations.Theme;
-import com.vaadin.annotations.Title;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewDisplay;
 import com.vaadin.server.VaadinRequest;
@@ -11,8 +9,6 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.ValoTheme;
 
-@Theme("valo")
-@Title("demo application")
 @SpringUI
 @SpringViewDisplay
 public class ApplicationUI extends UI implements ViewDisplay {

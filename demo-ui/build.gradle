@@ -1,23 +1,53 @@
 buildscript {
+    ext {
+        bootVersion = "1.5.7.RELEASE"
+        vaadinVersion = "2.0.0"
+        selenideVersion = "4.7.1" // 4.8 didn't work on osx
+        jgivenVersion = "0.15.3"
+        chromeDriverVersion = "2.33"
+    }
     repositories {
-        maven { url "https://plugins.gradle.org/m2/" }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
-        classpath("com.devsoap.plugin:gradle-vaadin-plugin:1.2.4")
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${bootVersion}"
     }
 }
 
-apply plugin: 'org.springframework.boot'
-apply plugin: 'com.devsoap.plugin.vaadin'
+plugins {
+    id "com.devsoap.plugin.vaadin" version "1.2.5"
+    id "com.energizedwork.webdriver-binaries" version "1.0"
+    id "com.tngtech.jgiven.gradle-plugin" version "0.14.1"
+}
+
+apply plugin: "org.springframework.boot"
 
 repositories {
-    maven { url "http://maven.vaadin.com/vaadin-addons" }
+    maven {
+        url "http://maven.vaadin.com/vaadin-addons"
+    }
 }
 
 dependencies {
     compile project(':demo-application')
+    compile("com.vaadin:vaadin-spring-boot-starter:${vaadinVersion}")
 
-    compile("com.vaadin:vaadin-spring-boot-starter:2.0.0")
-//    compile("com.google.guava:guava:23.0") eventbus必要かな？
-    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.boot:spring-boot-starter-test:${bootVersion}")
+
+    // for ui-test
+    testCompile("com.codeborne:selenide:${selenideVersion}")
+    testCompile("com.google.guava:guava:19.0")
+    // for BDD
+    testCompile("com.tngtech.jgiven:jgiven-junit:${jgivenVersion}")
+    testCompile("com.tngtech.jgiven:jgiven-spring:${jgivenVersion}")
+    testCompile("com.tngtech.jgiven:jgiven-html5-report:${jgivenVersion}")
 }
+
+webdriverBinaries {
+    downloadRoot new File("build/")
+    chromedriver chromeDriverVersion
+}
+
+test.finalizedBy jgivenTestReport

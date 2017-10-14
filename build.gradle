@@ -5,31 +5,21 @@ buildscript {
     }
 }
 
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = compatibility
+targetCompatibility = compatibility
+
 task wrapper(type: Wrapper) {
     gradleVersion = '4.0'
 }
 
 subprojects {
-    buildscript {
-        ext {
-            encoding = 'UTF-8'
-            compatibility = 1.8
-            springBootVersion = '1.5.7.RELEASE'
-        }
-        repositories {
-            mavenCentral()
-            jcenter()
-        }
-        dependencies {
-            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        }
+    repositories {
+        mavenCentral()
+        jcenter()
     }
-
-    apply plugin: 'idea'
-    apply plugin: 'java'
-
-    sourceCompatibility = compatibility
-    targetCompatibility = compatibility
 
     task initSrcDirs {
         doLast {
@@ -38,10 +28,5 @@ subprojects {
                 resources.srcDirs*.mkdirs()
             }
         }
-    }
-
-    repositories {
-        mavenCentral()
-        jcenter()
     }
 }
