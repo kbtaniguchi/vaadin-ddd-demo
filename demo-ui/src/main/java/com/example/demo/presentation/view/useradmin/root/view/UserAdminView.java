@@ -12,6 +12,7 @@ import com.example.demo.presentation.view.useradmin.root.presenter.IUserAdminVie
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.UI;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
@@ -32,6 +33,7 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
         super();
         this.presenter = presenter;
         setCaption(CAPTION);
+        UI.getCurrent().getPage().setTitle(CAPTION);
         addHeaderAndBody(viewHeader, viewBody);
     }
 

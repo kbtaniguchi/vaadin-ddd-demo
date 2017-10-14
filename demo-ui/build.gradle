@@ -2,11 +2,8 @@ buildscript {
     ext {
         bootVersion = "1.5.7.RELEASE"
         vaadinVersion = "2.0.0"
-        groovyVersion = "2.4.12"
-        gebVersion = "1.1.1"
-        seleniumVersion = "3.6.0"
-
-        drivers = ["chrome"]
+        selenideVersion = "4.7.1" // 4.8 didn't work on osx
+        jgivenVersion = "0.15.3"
         chromeDriverVersion = "2.33"
     }
     repositories {
@@ -20,50 +17,37 @@ buildscript {
 }
 
 plugins {
-    id "groovy"
     id "com.devsoap.plugin.vaadin" version "1.2.5"
     id "com.energizedwork.webdriver-binaries" version "1.0"
+    id "com.tngtech.jgiven.gradle-plugin" version "0.14.1"
 }
 
 apply plugin: "org.springframework.boot"
 
 repositories {
-    maven { url "http://maven.vaadin.com/vaadin-addons" }
+    maven {
+        url "http://maven.vaadin.com/vaadin-addons"
+    }
 }
 
 dependencies {
     compile project(':demo-application')
-
     compile("com.vaadin:vaadin-spring-boot-starter:${vaadinVersion}")
 
     testCompile("org.springframework.boot:spring-boot-starter-test:${bootVersion}")
 
-    // for geb + spock
-    testCompile("org.gebish:geb-spock:${gebVersion}")
-    testCompile("org.spockframework:spock-core:1.1-groovy-2.4") {
-        exclude group: "org.codehaus.groovy"
-    }
-    testCompile("org.codehaus.groovy:groovy-all:${groovyVersion}")
-
-    // driver
-    testCompile("org.seleniumhq.selenium:selenium-chrome-driver:${seleniumVersion}")
-    testRuntime("org.seleniumhq.selenium:selenium-support:${seleniumVersion}")
+    // for ui-test
+    testCompile("com.codeborne:selenide:${selenideVersion}")
+    testCompile("com.google.guava:guava:19.0")
+    // for BDD
+    testCompile("com.tngtech.jgiven:jgiven-junit:${jgivenVersion}")
+    testCompile("com.tngtech.jgiven:jgiven-spring:${jgivenVersion}")
+    testCompile("com.tngtech.jgiven:jgiven-html5-report:${jgivenVersion}")
 }
 
 webdriverBinaries {
+    downloadRoot new File("build/")
     chromedriver chromeDriverVersion
 }
 
-drivers.each { driver ->
-    task "${driver}Test"(type: Test) {
-        outputs.upToDateWhen { false }  // Always run tests
-
-        systemProperty "geb.build.reportsDir", reporting.file("geb/$name")
-        systemProperty "geb.env", driver
-    }
-}
-
-test {
-    dependsOn drivers.collect { tasks["${it}Test"] }
-    enabled = false
-}
+test.finalizedBy jgivenTestReport

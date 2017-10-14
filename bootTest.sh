@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-./gradlew clean :demo-ui:test
+pushd demo-ui/
+../gradlew clean :demo-ui:test
+popd

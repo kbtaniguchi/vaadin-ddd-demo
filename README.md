@@ -31,16 +31,23 @@ This application has multi projects.
 
 * Database: PostgreSQL https://www.postgresql.org/
 
-### libraries and tools
+### other libraries and tools
 
 * Build tool: Gradle https://gradle.org/
 * IDE: IntelliJ IDEA https://www.jetbrains.com/idea/
-* Libraries: Lombok https://projectlombok.org/
-  * do away with boilerplate code from domain model
-  * using for 2 purposes:
-    * define ValueObject's getter/setter and no args constructor which Vaadin's com.vaadin.data.Binder#bind() require
-    * define Aggregation's no args constructor which MyBatis's ResultMap require
-  * so our implementations don't depend on methods created by Lombok. these methods are only used by Framework.
+* Libraries:
+  * Lombok https://projectlombok.org/
+    * do away with boilerplate code from domain model
+    * using for 2 purposes:
+      * define ValueObject's getter/setter and no args constructor which Vaadin's com.vaadin.data.Binder#bind() require
+      * define Aggregation's no args constructor which MyBatis's ResultMap require
+    * so our implementations don't depend on methods created by Lombok. these methods are only used by Framework.
+* Testing:
+  * Selenide http://selenide.org/
+    * test automation powered by Selenium WebDriver
+  * JGiven http://jgiven.org/
+    * Behavior-Driven Development in Plain Java
+  * WebDriver binaries Gradle plugin https://github.com/energizedwork/webdriver-binaries-gradle-plugin/blob/master/README.md
 
 ## Usage
 

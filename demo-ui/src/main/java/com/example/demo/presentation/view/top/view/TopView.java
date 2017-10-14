@@ -4,6 +4,7 @@ import com.example.demo.presentation.view.fundamentals.fragment.header.ViewHeade
 import com.example.demo.presentation.view.fundamentals.layout.BaseViewLayout;
 import com.vaadin.navigator.View;
 import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.UI;
 
 @SpringView(name = TopView.VIEW_NAME)
 public class TopView extends BaseViewLayout implements View {
@@ -17,5 +18,6 @@ public class TopView extends BaseViewLayout implements View {
         super();
         addHeaderAndBody(viewHeader, viewBody);
         setCaption(CAPTION);
+        UI.getCurrent().getPage().setTitle(CAPTION);
     }
 }
