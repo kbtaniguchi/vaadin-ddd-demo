@@ -26,6 +26,10 @@ Demo application with DDD and MVP by Spring Boot and Vaadin Framework8.
       * define Aggregation's no args constructor which MyBatis's ResultMap require
     * so our implementations don't depend on methods created by Lombok. these methods are only used by Framework.
 
+## Wiki
+
+more information refer to https://github.com/bububu10/vaadin-ddd-demo/wiki
+
 ## Usage
 
 ### setup database
@@ -47,7 +51,3 @@ GRANT
 `./bootRun.sh`
 
 access http://localhost:8080/
-
-### reference
-
-https://github.com/bububu10/vaadin-ddd-demo/wiki
