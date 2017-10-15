@@ -56,6 +56,6 @@ GRANT
 
 ### start application
 
-`./gradlew :demo-ui:bootRun`
+`./bootRun.sh`
 
 access http://localhost:8080/
