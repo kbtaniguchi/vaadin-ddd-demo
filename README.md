@@ -1,25 +1,14 @@
 # vaadin-ddd-demo
 
-demo application by Vaadin Framework.  
+Demo application with DDD and MVP by Spring Boot and Vaadin Framework8.
 
 ## Description
 
 ### core design concept
 
-Domain Driven Design.
-This application has multi projects.
+Domain Driven Design + MVP architecture.
 
-#### demo-application project
-
-* domain layer: isolating any layers
-* application layer: depending on domain layer
-* infrastructure layer: depending on domain layer
-
-#### demo-ui project
-
-* presentation layer: depending on domain & application layer
-  * oriented MVP architecture
-![mvp-concept](./mvp-concept.png)
+![DDD+MVP](./doc/DDD+MVP.png)
 
 ### frameworks
 
