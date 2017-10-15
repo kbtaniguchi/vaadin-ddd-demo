@@ -4,12 +4,6 @@ Demo application with DDD and MVP by Spring Boot and Vaadin Framework8.
 
 ## Description
 
-### core design concept
-
-Domain Driven Design + MVP architecture.
-
-![DDD+MVP](./doc/DDD+MVP.png)
-
 ### frameworks
 
 * Web Application framework: Spring Boot https://projects.spring.io/spring-boot/ 
@@ -32,23 +26,6 @@ Domain Driven Design + MVP architecture.
       * define Aggregation's no args constructor which MyBatis's ResultMap require
     * so our implementations don't depend on methods created by Lombok. these methods are only used by Framework.
 
-### testing design
-
-#### ui(end to end)
-
-![UITesting](./doc/UITesting.png)
-
-##### used libraries & tools:
-* Selenide http://selenide.org/
-  * test automation powered by Selenium WebDriver
-* JGiven http://jgiven.org/
-  * Behavior-Driven Development in Plain Java
-* WebDriver binaries Gradle plugin https://github.com/energizedwork/webdriver-binaries-gradle-plugin/blob/master/README.md
-
-#### backend
-
-under construction...
-
 ## Usage
 
 ### setup database
@@ -70,3 +47,7 @@ GRANT
 `./bootRun.sh`
 
 access http://localhost:8080/
+
+### reference
+
+https://github.com/bububu10/vaadin-ddd-demo/wiki
