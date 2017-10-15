@@ -1,8 +1,7 @@
 package com.example.demo.presentation.scenario.sidemenu;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
 import com.example.demo.TestApplication;
+import com.example.demo.presentation.scenario.ScenarioTestUtils;
 import com.tngtech.jgiven.integration.spring.SimpleSpringRuleScenarioTest;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,7 +19,7 @@ public class SideMenuTransitionScenario extends SimpleSpringRuleScenarioTest<Sid
 
     @BeforeClass
     public static void setUp() {
-        Configuration.browser = WebDriverRunner.CHROME;
+        ScenarioTestUtils.setUpProperties();
     }
 
     @Test

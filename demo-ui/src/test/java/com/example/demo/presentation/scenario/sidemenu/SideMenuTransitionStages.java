@@ -4,6 +4,7 @@ import com.example.demo.presentation.ui.application.ApplicationUIPage;
 import com.example.demo.presentation.view.top.view.TopView;
 import com.example.demo.presentation.view.useradmin.root.view.UserAdminView;
 import com.tngtech.jgiven.Stage;
+import com.tngtech.jgiven.annotation.As;
 import com.tngtech.jgiven.integration.spring.JGivenStage;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -14,6 +15,7 @@ import static org.junit.Assert.assertThat;
 class SideMenuTransitionStages extends Stage<SideMenuTransitionStages> {
     ApplicationUIPage applicationUIPage;
 
+    @As("ルートへアクセス [port:{$}]")
     SideMenuTransitionStages ルートにアクセス(int port) {
         open(String.format("http://localhost:%s", port));
         sleep(1000);

@@ -5,6 +5,7 @@ import com.example.demo.presentation.view.useradmin.dialog.register.UserRegister
 import com.example.demo.presentation.view.useradmin.root.view.UserAdminView;
 import com.example.demo.presentation.view.useradmin.root.view.UserAdminViewPage;
 import com.tngtech.jgiven.Stage;
+import com.tngtech.jgiven.annotation.As;
 import com.tngtech.jgiven.integration.spring.JGivenStage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -19,6 +20,7 @@ class UserRegisterStages extends Stage<UserRegisterStages> {
     UserRegisterDialogPage userRegisterDialogPage;
     UserAdminViewPage afterUserAdminViewPage;
 
+    @As("UserAdminViewへアクセス [port:{$}]")
     UserRegisterStages UserAdminViewへアクセス(int port) {
         open(String.format("http://localhost:%s/#!%s", port, UserAdminView.VIEW_NAME));
         sleep(1000);
@@ -37,6 +39,7 @@ class UserRegisterStages extends Stage<UserRegisterStages> {
         return self();
     }
 
+    @As("項目を入力する [id:{$}, name:{$}, email:{$}]")
     UserRegisterStages 項目を入力する(String id, String name, String email) {
         userRegisterDialogPage.id().val(id);
         userRegisterDialogPage.name().val(name);

@@ -1,8 +1,7 @@
 package com.example.demo.presentation.scenario.useradmin;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
 import com.example.demo.TestApplication;
+import com.example.demo.presentation.scenario.ScenarioTestUtils;
 import com.tngtech.jgiven.integration.spring.SimpleSpringRuleScenarioTest;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,7 +19,7 @@ public class UserRegisterScenario extends SimpleSpringRuleScenarioTest<UserRegis
 
     @BeforeClass
     public static void setUp() {
-        Configuration.browser = WebDriverRunner.CHROME;
+        ScenarioTestUtils.setUpProperties();
     }
 
     @Test
