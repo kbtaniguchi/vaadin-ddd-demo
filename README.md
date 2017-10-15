@@ -19,10 +19,6 @@ Demo application with DDD and MVP by Spring Boot and Vaadin Framework8.
 * Build tool: Gradle https://gradle.org/
 * IDE: IntelliJ IDEA https://www.jetbrains.com/idea/
 
-## Wiki
-
-more information refer to https://github.com/bububu10/vaadin-ddd-demo/wiki
-
 ## Usage
 
 ### setup database
@@ -44,3 +40,7 @@ GRANT
 `./bootRun.sh`
 
 access http://localhost:8080/
+
+## Wiki
+
+more information refer to https://github.com/bububu10/vaadin-ddd-demo/wiki
