@@ -39,21 +39,44 @@ class UserRegisterStages extends Stage<UserRegisterStages> {
         return self();
     }
 
-    @As("項目を入力する [id:{$}, name:{$}, email:{$}]")
-    UserRegisterStages 項目を入力する(String id, String name, String email) {
+    @As("全項目を入力する [id:{$}, name:{$}, email:{$}]")
+    UserRegisterStages 全項目を入力する(String id, String name, String email) {
         userRegisterDialogPage.id().val(id);
         userRegisterDialogPage.name().val(name);
         userRegisterDialogPage.email().val(email);
         return self();
     }
 
+    UserRegisterStages 全て空文字を入力() {
+        userRegisterDialogPage.id().val("");
+        userRegisterDialogPage.name().val("");
+        userRegisterDialogPage.email().val("");
+        return self();
+    }
+
     UserRegisterStages Saveボタンをクリック() {
-        userRegisterDialogPage.SaveButton().click();
+        userRegisterDialogPage.saveButton().click();
+        return self();
+    }
+
+    UserRegisterStages Cancelボタンをクリック() {
+        userRegisterDialogPage.cancelButton().click();
         return self();
     }
 
     UserRegisterStages UserRegisterDialogが閉じる() {
-        userRegisterDialogPage.own().should(Condition.disappear);
+        userRegisterDialogPage.own().shouldBe(Condition.disappear);
+        return self();
+    }
+
+    UserRegisterStages UserRegisterDialogが開いたまま() {
+        userRegisterDialogPage.own().shouldBe(Condition.exist);
+        return self();
+    }
+
+    UserRegisterStages エラーメッセージが表示される() {
+        sleep(1000);
+        userRegisterDialogPage.errorMessage().shouldBe(Condition.appear);
         return self();
     }
 
@@ -64,6 +87,16 @@ class UserRegisterStages extends Stage<UserRegisterStages> {
         int beforeCount = beforeUserAdminViewPage.countGridData();
         int afterCount = afterUserAdminViewPage.countGridData();
         assertThat(afterCount - beforeCount, is(1));
+        return self();
+    }
+
+    UserRegisterStages UserSummaryGridにレコードが追加されていない() {
+        sleep(1000);
+        this.afterUserAdminViewPage = new UserAdminViewPage();
+
+        int beforeCount = beforeUserAdminViewPage.countGridData();
+        int afterCount = afterUserAdminViewPage.countGridData();
+        assertThat(afterCount - beforeCount, is(0));
         return self();
     }
 }

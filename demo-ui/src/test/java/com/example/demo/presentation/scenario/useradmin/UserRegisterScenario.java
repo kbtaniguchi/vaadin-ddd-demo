@@ -24,19 +24,46 @@ public class UserRegisterScenario extends SimpleSpringRuleScenarioTest<UserRegis
 
     @Test
     public void ユーザを登録できる() {
-        given()
-                .UserAdminViewへアクセス(port);
-
-        when()
-                .Addボタンをクリック();
-        then()
+        given().UserAdminViewへアクセス(port)
+                .and()
+                .Addボタンをクリック()
+                .and()
                 .UserRegisterDialogが起動する();
-
-        when()
-                .項目を入力する("tk", "bububu10", "tk@bububu10.com")
+        when().全項目を入力する("tk", "bububu10", "tk@bububu10.com")
+                .and()
                 .Saveボタンをクリック();
-        then()
-                .UserRegisterDialogが閉じる()
+        then().UserRegisterDialogが閉じる()
+                .and()
                 .UserSummaryGridに登録レコードが1件追加される();
+    }
+
+    @Test
+    public void ユーザ登録を途中でキャンセルできる() {
+        given().UserAdminViewへアクセス(port)
+                .and()
+                .Addボタンをクリック()
+                .and()
+                .UserRegisterDialogが起動する();
+        when().全項目を入力する("tk1", "bububu100", "tk1@bububu10.com")
+                .and()
+                .Cancelボタンをクリック();
+        then().UserRegisterDialogが閉じる()
+                .and()
+                .UserSummaryGridにレコードが追加されていない();
+    }
+
+    @Test
+    public void 入力値の不正があった場合はエラーメッセージを表示する() {
+        given().UserAdminViewへアクセス(port)
+                .and()
+                .Addボタンをクリック()
+                .and()
+                .UserRegisterDialogが起動する();
+        when().全て空文字を入力()
+                .and()
+                .Saveボタンをクリック();
+        then().UserRegisterDialogが開いたまま()
+                .and()
+                .エラーメッセージが表示される();
     }
 }

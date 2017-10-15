@@ -29,8 +29,12 @@ public class UserRegisterDialogPage {
         return $$("input").filter(Condition.cssClass("v-textfield-required")).get(2);
     }
 
+    public SelenideElement errorMessage() {
+        return $(".v-label-failure");
+    }
 
-    public SelenideElement SaveButton() {
+
+    public SelenideElement saveButton() {
         return $$(".v-button")
                 .find(Condition.text("Save"));
     }

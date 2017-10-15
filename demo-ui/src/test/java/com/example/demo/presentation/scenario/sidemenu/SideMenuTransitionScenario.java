@@ -24,17 +24,10 @@ public class SideMenuTransitionScenario extends SimpleSpringRuleScenarioTest<Sid
 
     @Test
     public void サイドメニューから各Viewに遷移できる() {
-        given()
-                .ルートにアクセス(port);
-
-        when()
-                .toUserAdminViewButtonをクリック();
-        then()
-                .UserAdminViewへ遷移できる();
-
-        when()
-                .toTopViewButtonをクリック();
-        then()
-                .TopViewへ遷移できる();
+        given().ルートにアクセス(port);
+        when().toUserAdminViewButtonをクリック();
+        then().UserAdminViewへ遷移できる();
+        when().toTopViewButtonをクリック();
+        then().TopViewへ遷移できる();
     }
 }
