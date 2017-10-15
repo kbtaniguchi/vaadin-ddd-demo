@@ -32,7 +32,7 @@ Domain Driven Design + MVP architecture.
       * define Aggregation's no args constructor which MyBatis's ResultMap require
     * so our implementations don't depend on methods created by Lombok. these methods are only used by Framework.
 
-### testing 
+### testing design
 
 #### ui(end to end)
 
