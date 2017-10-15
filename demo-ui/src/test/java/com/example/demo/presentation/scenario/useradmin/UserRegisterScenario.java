@@ -59,7 +59,7 @@ public class UserRegisterScenario extends SimpleSpringRuleScenarioTest<UserRegis
                 .Addボタンをクリック()
                 .and()
                 .UserRegisterDialogが起動する();
-        when().全て空文字を入力()
+        when().全項目に空文字を入力()
                 .and()
                 .Saveボタンをクリック();
         then().UserRegisterDialogが開いたまま()

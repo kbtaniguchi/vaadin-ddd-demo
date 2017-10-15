@@ -47,7 +47,7 @@ class UserRegisterStages extends Stage<UserRegisterStages> {
         return self();
     }
 
-    UserRegisterStages 全て空文字を入力() {
+    UserRegisterStages 全項目に空文字を入力() {
         userRegisterDialogPage.id().val("");
         userRegisterDialogPage.name().val("");
         userRegisterDialogPage.email().val("");
