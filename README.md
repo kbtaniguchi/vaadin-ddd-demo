@@ -18,7 +18,7 @@ Domain Driven Design + MVP architecture.
 
 ### supported database
 
-* Database: PostgreSQL https://www.postgresql.org/
+* PostgreSQL https://www.postgresql.org/
 
 ### other libraries and tools
 
@@ -31,12 +31,23 @@ Domain Driven Design + MVP architecture.
       * define ValueObject's getter/setter and no args constructor which Vaadin's com.vaadin.data.Binder#bind() require
       * define Aggregation's no args constructor which MyBatis's ResultMap require
     * so our implementations don't depend on methods created by Lombok. these methods are only used by Framework.
-* Testing:
+
+### testing 
+
+#### ui(end to end)
+
+![UITesting](./doc/UITesting.png)
+
+* used libraries & tools:
   * Selenide http://selenide.org/
     * test automation powered by Selenium WebDriver
   * JGiven http://jgiven.org/
     * Behavior-Driven Development in Plain Java
   * WebDriver binaries Gradle plugin https://github.com/energizedwork/webdriver-binaries-gradle-plugin/blob/master/README.md
+
+#### backend
+
+under construction...
 
 ## Usage
 
