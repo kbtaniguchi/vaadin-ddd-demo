@@ -38,12 +38,12 @@ Domain Driven Design + MVP architecture.
 
 ![UITesting](./doc/UITesting.png)
 
-* used libraries & tools:
-  * Selenide http://selenide.org/
-    * test automation powered by Selenium WebDriver
-  * JGiven http://jgiven.org/
-    * Behavior-Driven Development in Plain Java
-  * WebDriver binaries Gradle plugin https://github.com/energizedwork/webdriver-binaries-gradle-plugin/blob/master/README.md
+##### used libraries & tools:
+* Selenide http://selenide.org/
+  * test automation powered by Selenium WebDriver
+* JGiven http://jgiven.org/
+  * Behavior-Driven Development in Plain Java
+* WebDriver binaries Gradle plugin https://github.com/energizedwork/webdriver-binaries-gradle-plugin/blob/master/README.md
 
 #### backend
 
