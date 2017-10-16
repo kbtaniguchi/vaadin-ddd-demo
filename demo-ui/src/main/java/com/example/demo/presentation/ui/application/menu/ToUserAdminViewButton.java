@@ -5,10 +5,10 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.themes.ValoTheme;
 
 class ToUserAdminViewButton extends Button {
-    static String id = "ToUserAdminViewButton";
+    static String ID = "ToUserAdminViewButton";
 
     ToUserAdminViewButton() {
-        setId(id);
+        setId(ID);
         setCaption(UserAdminView.CAPTION);
         setPrimaryStyleName(ValoTheme.MENU_ITEM);
         addClickListener(event -> getUI().getNavigator().navigateTo(UserAdminView.VIEW_NAME));

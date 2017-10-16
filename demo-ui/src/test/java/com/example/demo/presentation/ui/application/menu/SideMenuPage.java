@@ -8,10 +8,10 @@ import static com.codeborne.selenide.Selenide.$;
 public class SideMenuPage {
 
     public SelenideElement toTopViewButton() {
-        return $(By.id(ToTopViewButton.id));
+        return $(By.id(ToTopViewButton.ID));
     }
 
     public SelenideElement toUserAdminViewButton() {
-        return $(By.id(ToUserAdminViewButton.id));
+        return $(By.id(ToUserAdminViewButton.ID));
     }
 }

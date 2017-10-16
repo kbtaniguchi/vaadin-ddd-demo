@@ -5,10 +5,10 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.themes.ValoTheme;
 
 class ToTopViewButton extends Button {
-    static String id = "ToTopViewButton";
+    static String ID = "ToTopViewButton";
 
     ToTopViewButton() {
-        setId(id);
+        setId(ID);
         setCaption(TopView.CAPTION);
         setPrimaryStyleName(ValoTheme.MENU_ITEM);
         addClickListener(event -> getUI().getNavigator().navigateTo(TopView.VIEW_NAME));
