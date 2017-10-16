@@ -6,12 +6,12 @@ import com.vaadin.ui.themes.ValoTheme;
 
 public class SideMenu extends CssLayout {
     final Title title = new Title();
-    final ToTopView toTopView = new ToTopView();
-    final ToUserAdminView toUserAdminView = new ToUserAdminView();
+    final ToTopViewButton toTopViewButton = new ToTopViewButton();
+    final ToUserAdminViewButton toUserAdminViewButton = new ToUserAdminViewButton();
 
     public SideMenu() {
         setPrimaryStyleName(ValoTheme.MENU_ROOT);
-        addComponents(title, toTopView, toUserAdminView);
+        addComponents(title, toTopViewButton, toUserAdminViewButton);
     }
 
     public void selectedItemRelatedTo(View activeView) {
@@ -20,12 +20,12 @@ public class SideMenu extends CssLayout {
     }
 
     private void allSelectedClear() {
-        toTopView.unselected();
-        toUserAdminView.unselected();
+        toTopViewButton.unselected();
+        toUserAdminViewButton.unselected();
     }
 
     private void selectedBy(String activeViewCaption) {
-        if (activeViewCaption.equals(toTopView.getCaption())) toTopView.selected();
-        if (activeViewCaption.equals(toUserAdminView.getCaption())) toUserAdminView.selected();
+        if (activeViewCaption.equals(toTopViewButton.getCaption())) toTopViewButton.selected();
+        if (activeViewCaption.equals(toUserAdminViewButton.getCaption())) toUserAdminViewButton.selected();
     }
 }

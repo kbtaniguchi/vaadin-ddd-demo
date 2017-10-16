@@ -4,9 +4,11 @@ import com.example.demo.presentation.view.top.view.TopView;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.themes.ValoTheme;
 
-class ToTopView extends Button {
+class ToTopViewButton extends Button {
+    static String id = "ToTopViewButton";
 
-    ToTopView() {
+    ToTopViewButton() {
+        setId(id);
         setCaption(TopView.CAPTION);
         setPrimaryStyleName(ValoTheme.MENU_ITEM);
         addClickListener(event -> getUI().getNavigator().navigateTo(TopView.VIEW_NAME));

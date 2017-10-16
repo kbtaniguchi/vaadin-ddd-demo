@@ -1,6 +1,6 @@
 package com.example.demo.presentation.scenario.sidemenu;
 
-import com.example.demo.presentation.ui.application.ApplicationUIPage;
+import com.example.demo.presentation.ui.application.menu.SideMenuPage;
 import com.example.demo.presentation.view.top.view.TopView;
 import com.example.demo.presentation.view.useradmin.root.view.UserAdminView;
 import com.tngtech.jgiven.Stage;
@@ -13,18 +13,18 @@ import static org.junit.Assert.assertThat;
 
 @JGivenStage
 class SideMenuTransitionStages extends Stage<SideMenuTransitionStages> {
-    ApplicationUIPage applicationUIPage;
+    SideMenuPage sideMenuPage;
 
     @As("ルートへアクセス [port:{$}]")
     SideMenuTransitionStages ルートにアクセス(int port) {
         open(String.format("http://localhost:%s", port));
         sleep(1000);
-        this.applicationUIPage = new ApplicationUIPage();
+        this.sideMenuPage = new SideMenuPage();
         return self();
     }
 
     SideMenuTransitionStages toUserAdminViewButtonをクリック() {
-        applicationUIPage.toUserAdminViewButton().click();
+        sideMenuPage.toUserAdminViewButton().click();
         return self();
     }
 
@@ -35,7 +35,7 @@ class SideMenuTransitionStages extends Stage<SideMenuTransitionStages> {
     }
 
     SideMenuTransitionStages toTopViewButtonをクリック() {
-        applicationUIPage.toTopViewButton().click();
+        sideMenuPage.toTopViewButton().click();
         return self();
     }
 
