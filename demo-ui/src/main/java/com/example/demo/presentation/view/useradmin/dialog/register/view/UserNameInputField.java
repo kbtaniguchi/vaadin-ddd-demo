@@ -5,9 +5,12 @@ import com.vaadin.data.BeanValidationBinder;
 import com.vaadin.ui.TextField;
 
 class UserNameInputField extends TextField {
+    static final String ID = "UserNameInputField";
+
     final BeanValidationBinder<UserName> binder = new BeanValidationBinder<>(UserName.class);
 
     UserNameInputField() {
+        setId(ID);
         setCaption(UserName.caption());
         setSizeFull();
         binder.bind(this, UserName.propertyName());

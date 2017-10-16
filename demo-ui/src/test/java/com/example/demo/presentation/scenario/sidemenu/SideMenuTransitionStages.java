@@ -1,6 +1,6 @@
 package com.example.demo.presentation.scenario.sidemenu;
 
-import com.example.demo.presentation.ui.application.menu.SideMenuPage;
+import com.example.demo.presentation.ui.application.menu.SideMenuAccessor;
 import com.example.demo.presentation.view.top.view.TopView;
 import com.example.demo.presentation.view.useradmin.root.view.UserAdminView;
 import com.tngtech.jgiven.Stage;
@@ -13,35 +13,35 @@ import static org.junit.Assert.assertThat;
 
 @JGivenStage
 class SideMenuTransitionStages extends Stage<SideMenuTransitionStages> {
-    SideMenuPage sideMenuPage;
+    SideMenuAccessor sideMenuAccessor;
 
     @As("ルートへアクセス [port:{$}]")
     SideMenuTransitionStages ルートにアクセス(int port) {
         open(String.format("http://localhost:%s", port));
         sleep(1000);
-        this.sideMenuPage = new SideMenuPage();
+        this.sideMenuAccessor = new SideMenuAccessor();
         return self();
     }
 
     SideMenuTransitionStages toUserAdminViewButtonをクリック() {
-        sideMenuPage.toUserAdminViewButton().click();
+        sideMenuAccessor.toUserAdminViewButton().click();
         return self();
     }
 
-    SideMenuTransitionStages UserAdminViewへ遷移できる() {
+    SideMenuTransitionStages UserAdminへ遷移する() {
         sleep(1000);
-        assertThat(title(), is(UserAdminView.CAPTION));
+        assertThat(title(), is(UserAdminView.TITLE));
         return self();
     }
 
     SideMenuTransitionStages toTopViewButtonをクリック() {
-        sideMenuPage.toTopViewButton().click();
+        sideMenuAccessor.toTopViewButton().click();
         return self();
     }
 
-    SideMenuTransitionStages TopViewへ遷移できる() {
+    SideMenuTransitionStages Topへ遷移する() {
         sleep(1000);
-        assertThat(title(), is(TopView.CAPTION));
+        assertThat(title(), is(TopView.TITLE));
         return self();
     }
 }

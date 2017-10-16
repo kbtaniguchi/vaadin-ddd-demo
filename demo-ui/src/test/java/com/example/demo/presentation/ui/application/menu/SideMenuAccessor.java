@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class SideMenuPage {
+public class SideMenuAccessor {
 
     public SelenideElement toTopViewButton() {
         return $(By.id(ToTopViewButton.ID));

@@ -5,7 +5,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.themes.ValoTheme;
 
 class ToTopViewButton extends Button {
-    static String ID = "ToTopViewButton";
+    final static String ID = "ToTopViewButton";
 
     ToTopViewButton() {
         setId(ID);

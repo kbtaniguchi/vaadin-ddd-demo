@@ -5,7 +5,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.themes.ValoTheme;
 
 class ToUserAdminViewButton extends Button {
-    static String ID = "ToUserAdminViewButton";
+    final static String ID = "ToUserAdminViewButton";
 
     ToUserAdminViewButton() {
         setId(ID);

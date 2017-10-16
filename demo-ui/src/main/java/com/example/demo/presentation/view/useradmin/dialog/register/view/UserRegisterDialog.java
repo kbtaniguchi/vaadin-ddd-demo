@@ -14,7 +14,9 @@ import javax.annotation.PostConstruct;
 
 @SpringView(name = UserRegisterDialog.VIEW_NAME)
 public class UserRegisterDialog extends FormDialog implements View, IUserRegisterDialog {
+    public static final String ID = "UserRegisterDialog";
     public static final String VIEW_NAME = "UserRegisterDialog";
+    public static final String CAPTION = "User Register Dialog";
 
     UserRegisterForm form = new UserRegisterForm();
 
@@ -22,9 +24,10 @@ public class UserRegisterDialog extends FormDialog implements View, IUserRegiste
 
     @Autowired
     public UserRegisterDialog(IUserRegisterPresenter presenter) {
-        super("User Register Dialog");
+        super(CAPTION);
         this.presenter = presenter;
 
+        setId(ID);
         setForm(form);
     }
 
