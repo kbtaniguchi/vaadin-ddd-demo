@@ -8,7 +8,7 @@ public class UserAdminViewPage {
     int gridDataCounter = 0;
 
     public UserAdminViewPage() {
-        if (!title().equals(UserAdminView.CAPTION)) throw new IllegalStateException();
+        if (!title().equals(UserAdminView.TITLE)) throw new IllegalStateException();
         this.gridDataCounter = $("table")
                 .findAll(".v-grid-row").size();
     }

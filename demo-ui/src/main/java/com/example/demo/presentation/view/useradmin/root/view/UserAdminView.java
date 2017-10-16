@@ -21,6 +21,7 @@ import javax.annotation.PostConstruct;
 public class UserAdminView extends BaseViewLayout implements View, IUserAdminView {
     public static final String VIEW_NAME = "UserAdminView";
     public static final String CAPTION = "User Admin";
+    public static final String TITLE = "Demo Application: User Admin";
 
     ViewHeader viewHeader = new ViewHeader(CAPTION);
     UserAdminViewBody viewBody = new UserAdminViewBody();
@@ -33,7 +34,7 @@ public class UserAdminView extends BaseViewLayout implements View, IUserAdminVie
         super();
         this.presenter = presenter;
         setCaption(CAPTION);
-        UI.getCurrent().getPage().setTitle(CAPTION);
+        UI.getCurrent().getPage().setTitle(TITLE);
         addHeaderAndBody(viewHeader, viewBody);
     }
 

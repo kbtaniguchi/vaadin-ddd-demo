@@ -9,7 +9,8 @@ import com.vaadin.ui.UI;
 @SpringView(name = TopView.VIEW_NAME)
 public class TopView extends BaseViewLayout implements View {
     public static final String VIEW_NAME = ""; // need top view name is ""
-    public static final String CAPTION = "Demo Application Top";
+    public static final String CAPTION = "Top";
+    public static final String TITLE = "Demo Application: Top";
 
     final ViewHeader viewHeader = new ViewHeader(CAPTION);
     final TopViewBody viewBody = new TopViewBody();
@@ -18,6 +19,6 @@ public class TopView extends BaseViewLayout implements View {
         super();
         addHeaderAndBody(viewHeader, viewBody);
         setCaption(CAPTION);
-        UI.getCurrent().getPage().setTitle(CAPTION);
+        UI.getCurrent().getPage().setTitle(TITLE);
     }
 }
