@@ -1,23 +1,41 @@
 package com.example.demo.presentation.view.useradmin.root.view;
 
 import com.codeborne.selenide.SelenideElement;
+import com.example.demo.presentation.view.useradmin.root.view.control.ControlAreaAccessor;
+import com.example.demo.presentation.view.useradmin.root.view.grid.UserSummaryGridLineCounter;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.title;
 
 public class UserAdminViewPage {
-    int gridDataCounter = 0;
+
+    UserSummaryGridLineCounter userSummaryGridLineCounter;
 
     public UserAdminViewPage() {
-        if (!title().equals(UserAdminView.CAPTION)) throw new IllegalStateException();
-        this.gridDataCounter = $("table")
-                .findAll(".v-grid-row").size();
+        if (!title().equals(UserAdminView.TITLE)) throw new IllegalStateException();
+        this.userSummaryGridLineCounter = new UserSummaryGridLineCounter();
+    }
+
+    public SelenideElement searchText() {
+        return ControlAreaAccessor.searchText();
+    }
+
+    public SelenideElement searchButton() {
+        return ControlAreaAccessor.searchButton();
     }
 
     public SelenideElement addButton() {
-        return $$(".v-button").get(1);
+        return ControlAreaAccessor.addButton();
     }
 
-    public int countGridData() {
-        return gridDataCounter;
+    public SelenideElement editButton() {
+        return ControlAreaAccessor.editButton();
+    }
+
+    public SelenideElement deleteButton() {
+        return ControlAreaAccessor.deleteButton();
+    }
+
+    public int countUserSummaryGridLines() {
+        return userSummaryGridLineCounter.countLines();
     }
 }

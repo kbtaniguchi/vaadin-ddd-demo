@@ -8,6 +8,8 @@ import com.vaadin.data.provider.ListDataProvider;
 import com.vaadin.ui.Grid;
 
 public class UserSummaryGrid extends Grid<UserSummary> {
+    static final String ID = "UserSummaryGrid";
+
     static ValueProvider<UserSummary, String> statusValueProvider = UserSummary::statusAsText;
     static ValueProvider<UserSummary, String> userIdValueProvider = userSummary -> userSummary.profile().userId().asText();
     static ValueProvider<UserSummary, String> userNameValueProvider = userSummary -> userSummary.profile().userName().asText();
@@ -19,6 +21,7 @@ public class UserSummaryGrid extends Grid<UserSummary> {
     ListDataProvider<UserSummary> dataProvider;
 
     public UserSummaryGrid() {
+        setId(ID);
         setSizeFull();
         setSelectionMode(SelectionMode.MULTI);
 

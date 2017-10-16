@@ -5,9 +5,12 @@ import com.vaadin.data.BeanValidationBinder;
 import com.vaadin.ui.TextField;
 
 class EmailAddressInputField extends TextField {
+    static final String ID = "EmailAddressInputField";
+
     final BeanValidationBinder<EmailAddress> binder = new BeanValidationBinder<>(EmailAddress.class);
 
     EmailAddressInputField() {
+        setId(ID);
         setCaption(EmailAddress.caption());
         setSizeFull();
         binder.bind(this, EmailAddress.propertyName());
